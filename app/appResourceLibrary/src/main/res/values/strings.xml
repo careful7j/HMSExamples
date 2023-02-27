@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">HMS Examples</string>
+    <string name="btn_analytics">Analytics+Crash Kit</string>
+
+    <string name="ag_dialog_title">HMS Core are missing!</string>
+    <string name="ag_dialog_supporting_text">This examples can NOT function without Huawei Services, please: \n1. Install Huawei Appgallery \n2. Download HMS Core application from AppGallery</string>
+    <string name="ag_dialog_go_download">Go Download AppGallery!</string>
+    <string name="ag_dialog_later">Later</string>
+
+    <string name="tv_send_event">Send event</string>
+    <string name="tv_send_event_bundle">Send Bundle event</string>
+    <string name="tv_send_event_arraylist">Send Arraylist Bundle</string>
+    <string name="tv_force_crash">Force a Crash</string>
+</resources>

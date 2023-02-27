@@ -1,41 +1,75 @@
+def getProperties(propFile) {
+    def propertiesFile = rootProject.file(propFile)
+    def properties = new Properties()
+    properties.load(new FileInputStream(propertiesFile))
+    return properties
+}
+
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.huawei.agconnect'
 }
 
 android {
     namespace 'net.c7j.wna.huawei'
-    compileSdk 33
+    compileSdk rootProject.compilesdk
 
     defaultConfig {
+        //Note: this id belongs to production application configured in a special way
         applicationId "net.c7j.wna.huawei"
-        minSdk 26
-        targetSdk 33
+        minSdk rootProject.minsdk
+        targetSdk rootProject.targetsdk
         versionCode 1
         versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        resConfigs "en"  // drop unused resources overhead to speed up examples build
     }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    kotlinOptions {
-        jvmTarget = '1.8'
+    kotlinOptions { jvmTarget = '1.8' }
+
+    // It is important to sign your .apk, so HMS can auth success
+    Properties signProperties = getProperties('keystore.properties')
+    signingConfigs {
+        release {
+            storeFile rootProject.file(signProperties['storeFile'])
+            storePassword signProperties['storePassword']
+            keyAlias signProperties['keyAlias']
+            keyPassword signProperties['keyPassword']
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
     }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            signingConfig signingConfigs.release
+        }
+        release {
+            debuggable true // only for examples, don't do it in your production build
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
 }
 
 dependencies {
+    // Used here ONLY to check if HMS is available on device, is implicitly included in each HMS kit.
+    // You don't need to add it if at least one HMS kit is presented
+    implementation "com.huawei.hms:base:6.7.0.300"
 
-    implementation 'androidx.core:core-ktx:1.9.0'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.8.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation "androidx.core:core-ktx:$rootProject.ver.corektx"
+    implementation "androidx.appcompat:appcompat:$rootProject.ver.appcompat"
+    implementation "com.google.android.material:material:$rootProject.ver.material"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.ver.constraintlayout"
+    implementation project(path: ':app:appResourceLibrary')
+    implementation project(path: ':app:analytics')
+
 }

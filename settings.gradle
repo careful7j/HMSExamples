@@ -3,6 +3,21 @@ pluginManagement {
         google()
         mavenCentral()
         gradlePluginPortal()
+        maven { url 'https://developer.huawei.com/repo/' }
+    }
+    plugins {}
+    resolutionStrategy {
+        eachPlugin {
+            if (it.requested.id.getNamespace() == 'com.huawei.agconnect') {
+                println ">> ${it.requested.id.id}"
+                if (it.requested.id.id == 'com.huawei.agconnect.agcp') {
+                    it.useModule('com.huawei.agconnect:agcp:1.8.0.300')
+                }
+                println ">> ${it.target}"
+            } else {
+                println ">  ${it.target}"
+            }
+        }
     }
 }
 dependencyResolutionManagement {
@@ -10,7 +25,11 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://developer.huawei.com/repo/' }
     }
 }
 rootProject.name = "HMS-Examples"
+include ':app:appResourceLibrary'
 include ':app'
+include ':app:analytics'
+
