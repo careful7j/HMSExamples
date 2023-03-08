@@ -29,6 +29,10 @@ android {
 }
 
 dependencies {
+    // Used here ONLY to check if HMS is available on device, is implicitly included in each HMS kit.
+    // You don't need to add it if at least one HMS kit is presented
+    implementation "com.huawei.hms:base:6.7.0.300"
+
     implementation "androidx.appcompat:appcompat:$rootProject.ver.appcompat"
     implementation "com.google.android.material:material:$rootProject.ver.material"
 }

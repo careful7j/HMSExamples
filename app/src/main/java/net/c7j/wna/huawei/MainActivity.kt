@@ -1,22 +1,13 @@
 package net.c7j.wna.huawei
 
-import android.content.ActivityNotFoundException
-import android.content.Context
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.huawei.hms.api.ConnectionResult
-import com.huawei.hms.api.HuaweiApiAvailability
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,20 +21,10 @@ class MainActivity : AppCompatActivity() {
         findViewById<MaterialButton>(R.id.btnNavigateToAnalytics).setOnClickListener {
             navigate("net.c7j.wna.huawei.AnalyticsActivity")
         }
-
-        findViewById<TextView>(R.id.btnHMSAreMissing).setOnClickListener { handleNoHMSAvailable() }
-    }
-
-
-    private fun navigate(navigationTarget: String) {
-        try {
-            val intent = Intent()
-            intent.setClassName(packageName, navigationTarget)
-            startActivity(intent)
-        } catch (e: Exception) {
-            Log.e("Error", "Exception: $e")
-            toast("Exception: $e")
+        findViewById<MaterialButton>(R.id.btnNavigateToAds).setOnClickListener {
+            navigate("net.c7j.wna.huawei.AdsNavigationActivity")
         }
+        findViewById<TextView>(R.id.btnHMSAreMissing).setOnClickListener { handleNoHMSAvailable() }
     }
 
 
@@ -69,24 +50,9 @@ class MainActivity : AppCompatActivity() {
 
         } else {
             findViewById<TextView>(R.id.btnHMSAreMissing)?.visibility = View.INVISIBLE
-            toast("HMS is ready")
+//            toast("HMS is ready")
         }
     }
-
-    private fun openWeblink(link: String) {
-        try {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(link)))
-        } catch (anfe: ActivityNotFoundException) {
-            toast("Failed to open web browser")
-        }
-    }
-
-    private fun toast(msg: String) = Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-
-
-    private fun isHmsAvailable(context: Context?) = HuaweiApiAvailability.getInstance()
-        .isHuaweiMobileServicesAvailable(context) == ConnectionResult.SUCCESS
-
 
     companion object {
         const val APPGALLERY_DOWNLOAD_LINK = "https://consumer.huawei.com/en/mobileservices/appgallery/"

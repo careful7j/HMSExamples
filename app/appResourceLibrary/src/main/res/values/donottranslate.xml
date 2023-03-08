@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ad_banner">testw6vs28auh3</string>
+    <!-- Can set up on ID for all sub types of full screen banners in AGC console-->
+    <string name="ad_interestial_img">teste9ih9j0rc3</string>
+    <string name="ad_interestial_vid">testb4znbuh3n2</string>
+    <!-- Can set up on ID for all sub types of native banners in AGC console-->
+    <string name="ad_native_large">testu7m3hc4gvm</string>
+    <string name="ad_native_small">testb65czjivt9</string>
+    <string name="ad_native_video">testy63txaom86</string>
+    <!-- Id of vertical video Ad is different from Id of horizontal video Ad -->
+    <string name="ad_rewarded_vertical">testx9dtjwj8hp</string>
+    <string name="ad_splash">testd7c5cewoj6</string>
+    <string name="ad_splash_landscape">testq6zq98hecj</string>
+    <string name="in_stream_ad_id">testy3cglm3pj0</string>
+</resources>

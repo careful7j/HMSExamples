@@ -32,4 +32,4 @@ rootProject.name = "HMS-Examples"
 include ':app:appResourceLibrary'
 include ':app'
 include ':app:analytics'
-
+include ':app:ads'

@@ -5,6 +5,14 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
+    <!-- required by various sdk of HUAWEI Mobile Services, please consider adding it to your manifest file -->
+    <queries>
+        <intent>
+            <action android:name="com.huawei.hms.core.aidlservice" />
+        </intent>
+    </queries>
+
+
     <application
         tools:ignore="GoogleAppIndexingWarning,UnusedAttribute"
         android:allowBackup="false"
@@ -24,6 +32,24 @@
         </activity>
 
         <activity android:name="net.c7j.wna.huawei.AnalyticsActivity" android:exported="true"/>
+
+        <activity android:name="net.c7j.wna.huawei.AdsNavigationActivity" android:exported="true"/>
+        <activity android:name="net.c7j.wna.huawei.BannerActivity" android:exported="true"/>
+        <activity android:name="net.c7j.wna.huawei.NativeActivity" android:exported="true"/>
+        <activity android:name="net.c7j.wna.huawei.InterstitialActivity" android:exported="true"/>
+        <activity android:name="net.c7j.wna.huawei.SplashActivity" android:exported="true"/>
+        <activity android:name="net.c7j.wna.huawei.InStreamActivity" android:exported="true"/>
+        <activity android:name="net.c7j.wna.huawei.expresssplash.ExSplashActivity" android:exported="true"/>
+        <activity android:name="net.c7j.wna.huawei.consent.ConsentActivity" android:exported="true"/>
+
+        <receiver
+            android:name="net.c7j.wna.huawei.expresssplash.ExSplashBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.huawei.hms.ads.EXSPLASH_DISPLAYED" />
+            </intent-filter>
+        </receiver>
 
     </application>
 

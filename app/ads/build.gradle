@@ -1,0 +1,80 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.huawei.agconnect'
+}
+
+
+android {
+    namespace 'net.c7j.wna.huawei.ads'
+    compileSdk rootProject.compilesdk
+
+    defaultConfig {
+        minSdk rootProject.minsdk
+        targetSdk rootProject.targetsdk
+        versionCode 1
+        versionName "1.0"
+        resConfigs "en"  // drop unused resources overhead to speed up examples build
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions { jvmTarget = '1.8' }
+}
+
+dependencies {
+    // Don't forget to:
+    // 1. Sign your app with your developer certificate SHA-256 fingerprint you added to AppGallery Connect console (2)
+    // 2. Download and add agconnect-services.json to your /app package, how to obtain:
+    // https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-get-started-android-0000001058210705#section641530103413
+
+    // 3. Open AGConnect: https://developer.huawei.com/consumer/ru/console#/serviceCards/AppService
+    // 4. DISABLE AD BLOCK in your browser
+    // 5. Pick "Publisher Service" and create your production Ad ids there
+    // 6. Production id ads are shown only if status of your app is green "active" in "my apps", however
+    // to test your business logic you can use test identifiers from donottranslate.xml of this project.
+
+    //-------------------------------
+    // Important! Error codes: https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/android-error-code-0000001130129080
+    //
+    // Additional reasons you may face Error code: 3, NOT mentioned in the documentation:
+    // - there is no SIM card in your device
+    // - banner type you created miss-matches with type of slot you are using e.g. you have created
+    // Native-type Ad id and trying to use it in Splash-type Ad.
+    // - your application yet was not approved by Ads team (not to mention your app have to be
+    // already published in AppGallery). If after a few days nothing happens submit a trouble ticket.
+    // - region miss-match: For example: you app developer account is registered in Russia, but you are
+    // now working from lets say from Turkey or Thailand - in this situation there might be no content.
+    // To fix it - turn on VPN of your app registered account original location before testing.
+    // - there is no advertisements at the moment. The most sad case you can not really check well,
+    // in this situation try to create a banner of the other type - normally Ads network can't run out of Ads
+    // of all types at the same moment. At least some shall be available.
+    //----------------------------------
+
+    // Documentation: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/publisher-service-integrating-sdk-0000001050066913
+    // Latest sdk version: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/publisher-service-version-change-history-0000001050066909
+    implementation 'com.huawei.hms:ads-prime:3.4.61.302' // +777kb overhead +400kb HMS Core overhead
+
+    // If you plan to use Huawei Ads Kit only on HUAWEI devices, is recommended light weight sdk:
+//    implementation 'com.huawei.hms:ads-lite:13.4.61.302' // +761kb overhead on .ads package
+
+    // To collect open advertisement identifier (OAID) if you require it at any of your services
+    // Documentation: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/identifier-service-integrating-sdk-0000001056460552
+    implementation 'com.huawei.hms:ads-identifier:3.4.56.300' // +17kb overhead
+    // To request user consent for personalized ads
+    implementation 'com.huawei.hms:ads-consent:3.4.61.302' // +37kb overhead
+
+    implementation "androidx.core:core-ktx:$rootProject.ver.corektx"
+    implementation "androidx.appcompat:appcompat:$rootProject.ver.appcompat"
+    implementation "com.google.android.material:material:$rootProject.ver.material"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.ver.constraintlayout"
+    implementation project(path: ':app:appResourceLibrary')
+}

@@ -2,9 +2,6 @@ package net.c7j.wna.huawei
 
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 import com.huawei.hms.aaid.HmsInstanceId
 import com.huawei.hms.analytics.HiAnalytics
@@ -13,7 +10,7 @@ import net.c7j.wna.huawei.analytics.R
 
 
 @Suppress("MemberVisibilityCanBePrivate")
-class AnalyticsActivity : AppCompatActivity() {
+class AnalyticsActivity : BaseActivity() {
 
     private var hiAnalyticsInstance: HiAnalyticsInstance? = null
     private lateinit var bundle1 : Bundle
@@ -39,7 +36,7 @@ class AnalyticsActivity : AppCompatActivity() {
     fun setUpUserId() {
         hiAnalyticsInstance?.setUserId(HmsInstanceId.getInstance(applicationContext).id)
         with(HmsInstanceId.getInstance(applicationContext).id) {
-            Log.e("AAID: ", this)
+            log("AAID: $this")
             toast("AAID: $this")
         }
     }
@@ -102,10 +99,6 @@ class AnalyticsActivity : AppCompatActivity() {
         // After pageStart() you shall not to forget pageEnd() accordingly:
         hiAnalyticsInstance?.pageEnd("screen-name1")
     }
-
-
-    private fun toast(msg: String) = Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-
 
     private fun initNavigation() {
         findViewById<MaterialButton>(R.id.btnSendEvent).setOnClickListener { reportEventNoBundle() }
