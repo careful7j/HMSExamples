@@ -1,4 +1,4 @@
-package net.c7j.wna.huawei.expresssplash
+package net.c7j.wna.huawei.splash
 
 import android.content.ComponentName
 import android.content.Context

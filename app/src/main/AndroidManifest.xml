@@ -2,8 +2,23 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Analytics Kit, Ads Kit -->
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <!-- Location Kit -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- Approximate Location -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- Precise Location -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- Since android 10 background location access requires user permission -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
+    <uses-permission android:name="com.huawei.hms.permission.ACTIVITY_RECOGNITION" />
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" tools:ignore="MockLocation,ProtectedPermissions" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <!-- required by various sdk of HUAWEI Mobile Services, please consider adding it to your manifest file -->
     <queries>
@@ -39,15 +54,42 @@
         <activity android:name="net.c7j.wna.huawei.InterstitialActivity" android:exported="true"/>
         <activity android:name="net.c7j.wna.huawei.SplashActivity" android:exported="true"/>
         <activity android:name="net.c7j.wna.huawei.InStreamActivity" android:exported="true"/>
-        <activity android:name="net.c7j.wna.huawei.expresssplash.ExSplashActivity" android:exported="true"/>
+        <activity android:name="net.c7j.wna.huawei.splash.ExSplashActivity" android:exported="true"/>
         <activity android:name="net.c7j.wna.huawei.consent.ConsentActivity" android:exported="true"/>
 
+        <activity android:name="net.c7j.wna.huawei.LocationMainActivity" android:exported="true"/>
+        <activity android:name="net.c7j.wna.huawei.SimpleLocationActivity" android:exported="true"/>
+        <activity android:name="net.c7j.wna.huawei.GeofenceActivity" android:exported="true"/>
+        <activity android:name="net.c7j.wna.huawei.ActivityRecognitionAndPeriodicLocationActivity" android:exported="true"/>
+
+        <!-- Express Splash Ads -->
         <receiver
-            android:name="net.c7j.wna.huawei.expresssplash.ExSplashBroadcastReceiver"
+            android:name="net.c7j.wna.huawei.splash.ExSplashBroadcastReceiver"
             android:enabled="true"
-            android:exported="true">
+            android:exported="true"
+            tools:ignore="ExportedReceiver">
             <intent-filter>
                 <action android:name="com.huawei.hms.ads.EXSPLASH_DISPLAYED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Location with intent || Activity Recognition || Activity Conversion -->
+        <receiver
+            android:name="net.c7j.wna.huawei.LocationBroadcastReceiver"
+            android:exported="true"
+            tools:ignore="ExportedReceiver">
+            <intent-filter>
+                <action android:name="com.huawei.hmssample.location.LocationBroadcastReceiver.ACTION_PROCESS_LOCATION" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Geofence receiver -->
+        <receiver
+            android:name="net.c7j.wna.huawei.GeofenceBroadcastReceiver"
+            android:exported="true"
+            tools:ignore="ExportedReceiver">
+            <intent-filter>
+                <action android:name="com.huawei.hmssample.location.GeofenceBroadcastReceiver.ACTION_PROCESS_LOCATION" />
             </intent-filter>
         </receiver>
 

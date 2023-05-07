@@ -9,6 +9,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.huawei.agconnect'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -68,5 +69,6 @@ dependencies {
     implementation project(path: ':app:appResourceLibrary')
     implementation project(path: ':app:analytics')
     implementation project(path: ':app:ads')
+    implementation project(path: ':app:location')
 
 }

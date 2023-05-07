@@ -9,6 +9,11 @@
     <string name="ag_dialog_go_download">Go Download AppGallery!</string>
     <string name="ag_dialog_later">Later</string>
 
+    <string name="dialog_permissions_title">Permissions are missing</string>
+    <string name="dialog_permissions_supporting_text">permission is required for that feature. Please open settings and enable it.</string>
+    <string name="dialog_permissions_positive">Open settings</string>
+    <string name="dialog_permissions_negative">Later</string>
+
     <string name="tv_send_event">Send event</string>
     <string name="tv_send_event_bundle">Send Bundle event</string>
     <string name="tv_send_event_arraylist">Send Arraylist Bundle</string>
@@ -133,4 +138,32 @@
     <string name="load_personalized_text">Load Personalized Ads.</string>
     <string name="load_non_personalized_text">Load Non-Personalized Ads.</string>
     <string name="no_ads_text">Do Not Load Ads.</string>
+
+    <string name="btn_location_kit">Location Kit</string>
+    <string name="btn_simple_location">Simple Location</string>
+    <string name="btn_activity_identification">Activity Identification</string>
+    <string name="btn_geofence">Geofence</string>
+    <string name="btn_location_note">High-precision Location and Indoor Location are not supported outside Chinese Mainland, and thus is not covered by this examples</string>
+
+    <string name="get_loc_init">Push the button, please</string>
+    <string name="get_loc_searching">searching…</string>
+    <string name="get_loc_failed">failed</string>
+    <string name="get_loc_null">location is null - did you grant the required permission?</string>
+    <string name="get_location">Request Location</string>
+    <string name="get_last_location">Get Last Location</string>
+
+    <string name="geofence_label">Adds geofence around Bangkok city (recommended to replace with your location)</string>
+    <string name="geofence_add">Add Geofence</string>
+    <string name="geofence_remove">Remove Geofence</string>
+    <string name="geofence_warning">Set this app as default location mock app in developer options of your device first. You can also disable location services to mock clearly.</string>
+    <string name="geofence_location_bangkok">Mock location Bangkok</string>
+    <string name="geofence_location_north_pole">Mock location North Pole</string>
+    <string name="geofence_location_stop_mock">Stop mock location</string>
+
+    <string name="str_activity_recognition">Enable user activity recognition</string>
+    <string name="str_activity_recognition_failed">recognition awaiting</string>
+    <string name="str_activity_conversion_failed">conversion awaiting</string>
+    <string name="str_activity_locations_failed">no location data</string>
+    <string name="str_activity_locations_note">Try to walk in the room\nNote: gps indoor can be slow or inaccurate</string>
+
 </resources>

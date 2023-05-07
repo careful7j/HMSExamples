@@ -1,0 +1,55 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.huawei.agconnect'
+}
+
+
+android {
+    namespace 'net.c7j.wna.huawei.location'
+    compileSdk rootProject.compilesdk
+
+    defaultConfig {
+        minSdk rootProject.minsdk
+        targetSdk rootProject.targetsdk
+        versionCode 1
+        versionName "1.0"
+        resConfigs "en"  // drop unused resources overhead to speed up examples build
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            packagingOptions  {
+                // If the CPU architecture is ARMv7 or ARMv8, add the following configuration:
+                doNotStrip "*/arm64-v8a/libucs-credential.so"
+                doNotStrip "*/armeabi-v7a/libucs-credential.so"
+//                // If the CPU architecture is x86, add the following configuration:
+//                doNotStrip "*/x86/libucs-credential.so"
+//                doNotStrip "*/x86_64/libucs-credential.so"
+                // Exclude platforms you don't need to support like this: (removes 360kb overhead)
+                exclude "lib/x86/libucs-credential.so"
+                exclude "lib/x86_64/libucs-credential.so"
+            }
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions { jvmTarget = '1.8' }
+}
+
+dependencies {
+    // Latest sdk version: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/version-change-history-0000001050986155
+    // Possible SDK issues FAQ: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/faq-0000001050986161
+    // Proguard/R8 Rules: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-obfuscation-scripts-0000001188775555
+    implementation "com.huawei.hms:location:6.9.0.300"
+
+    implementation "androidx.core:core-ktx:$rootProject.ver.corektx"
+    implementation "androidx.appcompat:appcompat:$rootProject.ver.appcompat"
+    implementation "com.google.android.material:material:$rootProject.ver.material"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.ver.constraintlayout"
+    implementation project(path: ':app:appResourceLibrary')
+}

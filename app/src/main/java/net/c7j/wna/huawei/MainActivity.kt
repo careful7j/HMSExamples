@@ -24,6 +24,9 @@ class MainActivity : BaseActivity() {
         findViewById<MaterialButton>(R.id.btnNavigateToAds).setOnClickListener {
             navigate("net.c7j.wna.huawei.AdsNavigationActivity")
         }
+        findViewById<MaterialButton>(R.id.btnNavigateToLocation).setOnClickListener {
+            navigate("net.c7j.wna.huawei.LocationMainActivity")
+        }
         findViewById<TextView>(R.id.btnHMSAreMissing).setOnClickListener { handleNoHMSAvailable() }
     }
 
@@ -50,7 +53,6 @@ class MainActivity : BaseActivity() {
 
         } else {
             findViewById<TextView>(R.id.btnHMSAreMissing)?.visibility = View.INVISIBLE
-//            toast("HMS is ready")
         }
     }
 

@@ -1,4 +1,4 @@
-package net.c7j.wna.huawei.expresssplash
+package net.c7j.wna.huawei.splash
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -14,6 +14,7 @@ import net.c7j.wna.huawei.consent.AdsConstant
 
 @SuppressLint("CustomSplashScreen")
 // For More settings of Express Splash Ads
+// Don't mix with Splash Ads (this two are different)
 // see: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/publisher-service-exsplash-0000001051056577
 class ExSplashActivity : BaseActivity() {
 

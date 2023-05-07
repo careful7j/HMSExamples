@@ -5,14 +5,14 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.4.1'
+        classpath 'com.android.tools.build:gradle:7.4.2'
     }
 }
 
 plugins {
     id 'com.android.application' version '7.4.1' apply false
     id 'com.android.library' version '7.4.1' apply false
-    id 'org.jetbrains.kotlin.android' version '1.8.0' apply false
+    id 'org.jetbrains.kotlin.android' version '1.8.10' apply false
     id "com.huawei.agconnect.agcp" version "1.8.0.300" apply false
 }
 
@@ -23,8 +23,8 @@ allprojects {
 
     project.ext.ver = [:]
     ver.appcompat = "1.6.1"
-    ver.corektx = "1.9.0"
-    ver.material = "1.8.0"
+    ver.corektx = "1.10.0"
+    ver.material = "1.9.0"
     ver.constraintlayout = "2.1.4"
 }
 
