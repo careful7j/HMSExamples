@@ -70,5 +70,6 @@ dependencies {
     implementation project(path: ':app:analytics')
     implementation project(path: ':app:ads')
     implementation project(path: ':app:location')
+    implementation project(path: ':app:maps')
 
 }

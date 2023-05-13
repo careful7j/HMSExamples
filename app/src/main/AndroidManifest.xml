@@ -36,8 +36,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.HMSExamples"
-        tools:targetApi="33">
+        android:theme="@style/Theme.HMSExamples">
 
         <activity android:name=".MainActivity" android:exported="true">
             <intent-filter>
@@ -61,6 +60,16 @@
         <activity android:name="net.c7j.wna.huawei.SimpleLocationActivity" android:exported="true"/>
         <activity android:name="net.c7j.wna.huawei.GeofenceActivity" android:exported="true"/>
         <activity android:name="net.c7j.wna.huawei.ActivityRecognitionAndPeriodicLocationActivity" android:exported="true"/>
+
+        <activity android:name="net.c7j.wna.huawei.MapsMainActivity" android:exported="true"/>
+        <activity android:name="net.c7j.wna.huawei.SimpleMapActivity" android:exported="true"/>
+        <activity android:name="net.c7j.wna.huawei.MapFragmentActivity" android:exported="true"/>
+        <activity android:name="net.c7j.wna.huawei.MarkerLocationMapActivity" android:exported="true"/>
+        <activity android:name="net.c7j.wna.huawei.StyleAndCameraMapActivity" android:exported="true"/>
+        <activity android:name="net.c7j.wna.huawei.LiteMapActivity" android:exported="true"/>
+        <activity android:name="net.c7j.wna.huawei.MapDrawShapesActivity" android:exported="true"/>
+        <activity android:name="net.c7j.wna.huawei.MapOverlayActivity" android:exported="true"/>
+        <activity android:name="net.c7j.wna.huawei.HeatMapActivity" android:exported="true"/>
 
         <!-- Express Splash Ads -->
         <receiver

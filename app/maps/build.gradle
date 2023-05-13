@@ -1,0 +1,52 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.huawei.agconnect'
+}
+
+
+android {
+    namespace 'net.c7j.wna.huawei.maps'
+    compileSdk rootProject.compilesdk
+
+    defaultConfig {
+        minSdk rootProject.minsdk
+        targetSdk rootProject.targetsdk
+        versionCode 1
+        versionName "1.0"
+        resConfigs "en"  // drop unused resources overhead to speed up examples build
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    // Light-weight version of maps sdk which requires Huawei Mobile Services to be installed on your device
+    implementation "com.huawei.hms:maps:6.10.1.300"
+    // "maps-basic" (full) version allows map to be workable without HMS installed on device.
+    // sdk version of "maps-basic" and "maps" shall be the same if you select full sdk.
+    implementation "com.huawei.hms:maps-basic:6.10.1.300"
+
+    // Important! This sample do not cover the capabilities of enhanced map SDK
+    // This samples cover only standard sdk capabilities available for everyone.
+    // More information on enhanced sdk and how to obtain (paid) access to it is available here:
+    // https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-sdk-adv-overview-0000001244807535
+    // Don't hesitate to submit an email to maps team, in my case they responded within 2 business days
+    implementation "androidx.core:core-ktx:$rootProject.ver.corektx"
+    implementation "androidx.appcompat:appcompat:$rootProject.ver.appcompat"
+    implementation "com.google.android.material:material:$rootProject.ver.material"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.ver.constraintlayout"
+    implementation project(path: ':app:appResourceLibrary')
+}

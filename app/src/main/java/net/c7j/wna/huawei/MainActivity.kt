@@ -27,6 +27,9 @@ class MainActivity : BaseActivity() {
         findViewById<MaterialButton>(R.id.btnNavigateToLocation).setOnClickListener {
             navigate("net.c7j.wna.huawei.LocationMainActivity")
         }
+        findViewById<MaterialButton>(R.id.btnNavigateToMaps).setOnClickListener {
+            navigate("net.c7j.wna.huawei.MapsMainActivity")
+        }
         findViewById<TextView>(R.id.btnHMSAreMissing).setOnClickListener { handleNoHMSAvailable() }
     }
 

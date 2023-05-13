@@ -166,4 +166,37 @@
     <string name="str_activity_locations_failed">no location data</string>
     <string name="str_activity_locations_note">Try to walk in the room\nNote: gps indoor can be slow or inaccurate</string>
 
+    <string name="btn_map_kit">Map Kit</string>
+    <string name="btn_simple_map">Simple Map</string>
+    <string name="btn_support_map_fragment">Support Map Fragment</string>
+    <string name="btn_marker_location_map">Marker Location Map</string>
+    <string name="btn_style_and_camera_map">Style and Camera</string>
+    <string name="btn_lite_map">Lite Map</string>
+    <string name="btn_overlay_map">Map Overlay</string>
+
+    <string name="btn_add_marker">Add Marker</string>
+    <string name="btn_add_cluster_markers">Add Cluster Markers</string>
+    <string name="btn_custom_info_window">Custom Info Window</string>
+
+    <string name="btn_set_style">Set Style</string>
+    <string name="btn_animate_camera">Animate</string>
+    <string name="btn_move_camera">Move</string>
+    <string name="btn_zoom_camera">Zoom</string>
+    <string name="btn_camera_region">Region</string>
+    <string name="tv_camera_status">camera status awaiting</string>
+
+    <string name="btn_ground_overlay">Ground Overlay</string>
+    <string name="btn_draw_shapes">Draw shapes</string>
+    <string name="btn_add_tile_overlay">Add tile overlay</string>
+    <string name="btn_modify_tile_overlay">Modify tile overlay</string>
+    <string name="btn_remove_tile_overlay">Remove tile overlay</string>
+    <string name="btn_modify_shapes">Modify shapes</string>
+
+    <string name="btn_heatmap">Heatmap</string>
+    <string name="btn_add_heatmap">Add Heatmap</string>
+    <string name="btn_modify_heatmap">Modify Heatmap</string>
+    <string name="btn_remove_heatmap">Remove Heatmap</string>
+
+    <string name="tv_enhanced_sdk">Some enhanced functions like route building or 3D are pay to go and require map enhanced sdk</string>
+
 </resources>

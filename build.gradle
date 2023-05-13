@@ -23,7 +23,7 @@ allprojects {
 
     project.ext.ver = [:]
     ver.appcompat = "1.6.1"
-    ver.corektx = "1.10.0"
+    ver.corektx = "1.10.1"
     ver.material = "1.9.0"
     ver.constraintlayout = "2.1.4"
 }

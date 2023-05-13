@@ -20,10 +20,10 @@ import com.huawei.hms.api.HuaweiApiAvailability
 abstract class BaseActivity : AppCompatActivity() {
 
     //Cross-module navigation
-    protected fun navigate(navigationTarget: String) {
+    protected fun navigate(destination: String) {
         try {
             val intent = Intent()
-            intent.setClassName(packageName, navigationTarget)
+            intent.setClassName(packageName, destination)
             startActivity(intent)
         } catch (e: Exception) {
             Log.e("Error", "Exception: $e")
