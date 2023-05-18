@@ -12,6 +12,7 @@ import com.huawei.hms.ads.consent.inter.ConsentUpdateListener
 import net.c7j.wna.huawei.consent.ConsentDialog.ConsentDialogCallback
 import net.c7j.wna.huawei.BaseActivity
 import net.c7j.wna.huawei.ads.R
+import net.c7j.wna.huawei.log
 import java.util.*
 
 

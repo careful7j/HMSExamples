@@ -1,0 +1,66 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.huawei.agconnect'
+}
+
+
+android {
+    namespace 'net.c7j.wna.huawei.push'
+    compileSdk rootProject.compilesdk
+
+    defaultConfig {
+        minSdk rootProject.minsdk
+        targetSdk rootProject.targetsdk
+        versionCode 1
+        versionName "1.0"
+        resConfigs "en"  // drop unused resources overhead to speed up examples build
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+
+dependencies {
+    // Important! Enable Push Kit in AppGallery console: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/service-config-0000001050040166
+
+    // To send test push through AppGallery Connect Console please go to:
+    // https://developer.huawei.com/ sign into your developer account, go to AppGallery Connect ->
+    // All services -> My Projects -> Grow (at left column) -> Push Kit -> Add Notification
+    // At Scope section choose "Specified device" and put your device's token
+    // Device's token is provided by getToken() or onNewToken() methods of this example
+    // Use type "notification message" or type "data message" to receive notification of expected type
+
+    // Latest sdk version at: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-app-version-0000001074227861
+    // Push multiple languages support: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-noti-local-0000001050042073
+    // Push lock screen privacy support: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-content-hide-lock-0000001050040132
+    // Notification message styling: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-badging-0000001050042083
+    // Privacy and data processing: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/sdk-data-security-0000001050042177
+
+    // Open ports and IP configurations for your devops: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/restrictions-0000001050040064
+
+    // Error codes and how to fix: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/commonerror-0000001059816656
+    implementation 'com.huawei.hms:push:6.10.0.300'
+    // Optional dependency: will show "please install HMS" dialogue on devices which don't have HMS
+    implementation 'com.huawei.hms:hmscoreinstaller:6.9.0.300'
+    // Optional dependency to enable enhanced functions like send push to audience or a/b tests
+    implementation "com.huawei.hms:hianalytics:6.9.0.302"
+
+    implementation "androidx.core:core-ktx:$rootProject.ver.corektx"
+    implementation "androidx.appcompat:appcompat:$rootProject.ver.appcompat"
+    implementation "com.google.android.material:material:$rootProject.ver.material"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.ver.constraintlayout"
+    implementation project(path: ':app:appResourceLibrary')
+}

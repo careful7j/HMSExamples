@@ -139,9 +139,6 @@ abstract class BaseActivity : AppCompatActivity() {
         }
     }
 
-
-    protected fun log(text: String) = Log.e("HMS Examples", "" + text)
-
     protected fun toast(msg: String) = Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
 
 
@@ -166,3 +163,5 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
 }
+
+fun log(message: Any?) = Log.e("HMS Examples", "$message")

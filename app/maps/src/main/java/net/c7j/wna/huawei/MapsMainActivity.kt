@@ -2,6 +2,7 @@ package net.c7j.wna.huawei
 
 import android.os.Bundle
 import com.google.android.material.button.MaterialButton
+import com.huawei.agconnect.AGConnectOptionsBuilder
 import com.huawei.hms.maps.MapsInitializer
 import net.c7j.wna.huawei.maps.R
 
@@ -9,11 +10,12 @@ import net.c7j.wna.huawei.maps.R
 class MapsMainActivity : BaseActivity() {
 
     private fun initializeMapSdk() {
-        // 1. "api_key" value can be found at your agconnect-services.json
-        // 2. make sure you have already enabled Huawei maps toggle in your AppGallery console at:
-        //      All Services -> My projects -> Project settings -> Manage APIs -> Map Kit (enable)
-        // 3. You are free to either initialize maps in your Activity or in your Application class
-        val apiKey = "CV5gn129T6MZZmwblKw76s4Rf8zzVKqs7gMNKjYrJzSHIMEZD17zF9tjUcIbNypIBLQvRsq1+8pzt2BWHPcJyRDCnOwS"
+        // Make sure you have already enabled Huawei maps toggle in your AppGallery console at:
+        // All Services -> My projects -> Project settings -> Manage APIs -> Map Kit (enable)
+        //
+        // You are free to either initialize maps in your Activity or in your Application class
+        // Takes your "api_key" from your agconnect-services.json
+        val apiKey = AGConnectOptionsBuilder().build(this@MapsMainActivity).getString("client/api_key")
         MapsInitializer.initialize(this, apiKey)
     }
 
