@@ -66,11 +66,13 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$rootProject.ver.appcompat"
     implementation "com.google.android.material:material:$rootProject.ver.material"
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.ver.constraintlayout"
+
     implementation project(path: ':app:appResourceLibrary')
     implementation project(path: ':app:analytics')
     implementation project(path: ':app:ads')
     implementation project(path: ':app:location')
     implementation project(path: ':app:maps')
     implementation project(path: ':app:push')
+    implementation project(path: ':app:in-app-purchases')
 
 }

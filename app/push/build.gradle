@@ -51,6 +51,7 @@ dependencies {
 
     // Open ports and IP configurations for your devops: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/restrictions-0000001050040064
 
+    // Note: Push message size is limited with only 4 kilobytes of data (same as Firebase)
     // Error codes and how to fix: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/commonerror-0000001059816656
     implementation 'com.huawei.hms:push:6.10.0.300'
     // Optional dependency: will show "please install HMS" dialogue on devices which don't have HMS

@@ -33,6 +33,9 @@ class MainActivity : BaseActivity() {
         findViewById<MaterialButton>(R.id.btnNavigateToPush).setOnClickListener {
             navigate("net.c7j.wna.huawei.PushMainActivity")
         }
+        findViewById<MaterialButton>(R.id.btnNavigateToIap).setOnClickListener {
+            navigate("net.c7j.wna.huawei.IapMainActivity")
+        }
         findViewById<TextView>(R.id.btnHMSAreMissing).setOnClickListener { handleNoHMSAvailable() }
     }
 

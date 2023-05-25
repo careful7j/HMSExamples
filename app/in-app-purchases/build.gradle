@@ -1,0 +1,65 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.huawei.agconnect'
+}
+
+
+android {
+    namespace 'net.c7j.wna.huawei.iap'
+    compileSdk rootProject.compilesdk
+
+    defaultConfig {
+        minSdk rootProject.minsdk
+        targetSdk rootProject.targetsdk
+        versionCode 1
+        versionName "1.0"
+        resConfigs "en"  // drop unused resources overhead to speed up examples build
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+
+dependencies {
+    // Important!!! This service requires you to create a Merchant Account
+    // Merchant account will take some time to approve by HUAWEI side (normally several days):
+    // https://developer.huawei.com/consumer/en/doc/start/merchant-service-0000001053025967
+    //
+    // This is SIMPLIFIED version of tutorial for SERVERLESS IAP. If you want a full scheme with
+    // server validations, please see official one at: https://github.com/HMS-Core/hms-iap-clientdemo-android-studio/tree/kotlin
+    //
+    // Latest sdk version: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/version-change-history-0000001050065947
+    //
+    // IAP product in AppGallery Console configuration guide: https://developer.huawei.com/consumer/en/doc/distribution/app/agc-help-create-product-0000001099854866#section10697151616123
+    //
+    // Important! Configure the res/raw/keep.xml file as follows to keep layout resources if you have enabled R8 resource shrinking:
+    // See more on that: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-obfuscation-scripts-0000001050260710
+    //
+    // Sandbox to test purchases: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/sandbox-testing-0000001050035039
+    //
+    // Complete guide about functions of subscriptions and how do they operate / are billed, can be found at that page:
+    // https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/subscription-functions-0000001050130264#section9656759154814
+    implementation "com.huawei.hms:iap:6.10.0.300"
+
+    // Optional dependency: will show "please install HMS" dialogue on devices which don't have HMS
+    implementation 'com.huawei.hms:hmscoreinstaller:6.9.0.300'
+
+    implementation "androidx.core:core-ktx:$rootProject.ver.corektx"
+    implementation "androidx.appcompat:appcompat:$rootProject.ver.appcompat"
+    implementation "com.google.android.material:material:$rootProject.ver.material"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.ver.constraintlayout"
+    implementation project(path: ':app:appResourceLibrary')
+}

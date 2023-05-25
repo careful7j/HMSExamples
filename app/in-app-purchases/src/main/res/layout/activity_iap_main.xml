@@ -14,81 +14,59 @@
         tools:context=".MainActivity">
 
         <TextView
-            android:id="@+id/btnHMSAreMissing"
+            android:id="@+id/tvIapInfo"
             android:visibility="invisible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/ag_dialog_title"
+            android:text="@string/tv_iap_info"
             android:gravity="center"
             android:textColor="@color/colorPrimary"
             android:layout_marginBottom="24dp"
-            app:layout_constraintBottom_toTopOf="@+id/btnNavigateToAnalytics"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnNavigateToAnalytics"
+            android:id="@+id/btnIapConsumable"
             android:layout_width="256dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="64dp"
-            android:text="@string/btn_analytics"
+            android:text="@string/btn_iap_consumable"
             android:gravity="center"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvIapInfo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnNavigateToAds"
+            android:id="@+id/btnIapNonConsumable"
             android:layout_width="256dp"
             android:layout_height="wrap_content"
-            android:text="@string/btn_ads"
+            android:text="@string/btn_iap_non_consumable"
             android:gravity="center"
-            app:layout_constraintTop_toBottomOf="@+id/btnNavigateToAnalytics"
+            app:layout_constraintTop_toBottomOf="@+id/btnIapConsumable"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnNavigateToLocation"
+            android:id="@+id/btnIapSubscription"
             android:layout_width="256dp"
             android:layout_height="wrap_content"
-            android:text="@string/btn_location_kit"
+            android:text="@string/btn_iap_subscription"
             android:gravity="center"
-            app:layout_constraintTop_toBottomOf="@+id/btnNavigateToAds"
+            app:layout_constraintTop_toBottomOf="@+id/btnIapNonConsumable"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnNavigateToMaps"
+            android:id="@+id/btnIapHistory"
             android:layout_width="256dp"
             android:layout_height="wrap_content"
-            android:text="@string/btn_map_kit"
+            android:text="@string/btn_iap_history"
             android:gravity="center"
-            app:layout_constraintTop_toBottomOf="@+id/btnNavigateToLocation"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnNavigateToPush"
-            android:layout_width="256dp"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_push_kit"
-            android:gravity="center"
-            app:layout_constraintTop_toBottomOf="@+id/btnNavigateToMaps"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnNavigateToIap"
-            android:layout_width="256dp"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_iap_kit"
-            android:gravity="center"
-            app:layout_constraintTop_toBottomOf="@+id/btnNavigateToPush"
+            app:layout_constraintTop_toBottomOf="@+id/btnIapSubscription"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             />

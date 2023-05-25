@@ -10,7 +10,7 @@ import com.huawei.hms.push.SendException
 import java.util.Arrays
 
 // ::created by c7j at 17.05.2023 19:38
-// A basic class of Push Kit for receiving downlink messages or updated tokens.
+// A basic class of Push Kit for receiving down link messages or updated tokens.
 class HuaweiPushService : HmsMessageService() {
 
     /**
@@ -76,7 +76,7 @@ class HuaweiPushService : HmsMessageService() {
             receipt mode: $receiptMode
             original urgency: $originalUrgency
             urgency: $urgency
-            token: $token""${'"'}.trimIndent())
+            token: $token
             """)
         }
 
@@ -112,7 +112,7 @@ class HuaweiPushService : HmsMessageService() {
                 Importance: $importance
                 Ticker: $ticker
                 VibrateConfig: $vibrateConfig
-                Visibility: $visibility""${'"'}.trimIndent())
+                Visibility: $visibility
             """)
         }
 

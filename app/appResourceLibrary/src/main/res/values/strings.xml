@@ -209,5 +209,16 @@
     <string name="btn_push_turn_off">Push turn off</string>
     <string name="btn_push_deeplink">Deeplink activity</string>
 
+    <string name="btn_iap_kit">In App Purchases Kit</string>
+    <string name="btn_iap_consumable">Consumable</string>
+    <string name="btn_iap_non_consumable">Non-consumable</string>
+    <string name="btn_iap_subscription">Subscription</string>
+    <string name="btn_iap_history">Purchase history</string>
+    <string name="tv_iap_info">Info about sdk</string>
+
+    <string name="btn_purchase_subscription">Purchase subscription</string>
+    <string name="btn_check_subscriptions">Check subscriptions</string>
+    <string name="btn_purchase_non_consumable">Purchase non-consumable</string>
+    <string name="btn_purchase_consumable">Purchase consumable</string>
 
 </resources>

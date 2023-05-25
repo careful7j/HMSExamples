@@ -84,6 +84,12 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="net.c7j.wna.huawei.IapMainActivity" android:exported="true"/>
+        <activity android:name="net.c7j.wna.huawei.IapConsumableActivity" android:exported="true"/>
+        <activity android:name="net.c7j.wna.huawei.IapHistoryActivity" android:exported="true"/>
+        <activity android:name="net.c7j.wna.huawei.IapNonConsumableActivity" android:exported="true"/>
+        <activity android:name="net.c7j.wna.huawei.IapSubscriptionActivity" android:exported="true"/>
+
         <!-- Express Splash Ads -->
         <receiver
             android:name="net.c7j.wna.huawei.splash.ExSplashBroadcastReceiver"
