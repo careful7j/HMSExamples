@@ -20,6 +20,10 @@
     <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" tools:ignore="MockLocation,ProtectedPermissions" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
+    <!-- FIDO (Face recognition biometric auth) -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+
     <!-- required by various sdk of HUAWEI Mobile Services, please consider adding it to your manifest file -->
     <queries>
         <intent>
@@ -89,6 +93,8 @@
         <activity android:name="net.c7j.wna.huawei.IapHistoryActivity" android:exported="true"/>
         <activity android:name="net.c7j.wna.huawei.IapNonConsumableActivity" android:exported="true"/>
         <activity android:name="net.c7j.wna.huawei.IapSubscriptionActivity" android:exported="true"/>
+
+        <activity android:name="net.c7j.wna.huawei.FingerprintActivity" android:exported="true"/>
 
         <!-- Express Splash Ads -->
         <receiver

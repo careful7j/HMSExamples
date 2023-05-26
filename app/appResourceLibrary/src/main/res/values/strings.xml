@@ -214,11 +214,14 @@
     <string name="btn_iap_non_consumable">Non-consumable</string>
     <string name="btn_iap_subscription">Subscription</string>
     <string name="btn_iap_history">Purchase history</string>
-    <string name="tv_iap_info">Info about sdk</string>
+    <string name="tv_iap_info">Developer account DOES NOT HAVE A REFUND BUTTON. If you want to make a refund - please submit an email to HUAWEI technical support</string>
 
     <string name="btn_purchase_subscription">Purchase subscription</string>
     <string name="btn_check_subscriptions">Check subscriptions</string>
     <string name="btn_purchase_non_consumable">Purchase non-consumable</string>
     <string name="btn_purchase_consumable">Purchase consumable</string>
+
+    <string name="btn_fingerprint">Fingerprint</string>
+    <string name="btn_face_auth">Face auth</string>
 
 </resources>

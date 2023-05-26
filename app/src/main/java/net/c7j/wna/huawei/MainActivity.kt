@@ -36,6 +36,9 @@ class MainActivity : BaseActivity() {
         findViewById<MaterialButton>(R.id.btnNavigateToIap).setOnClickListener {
             navigate("net.c7j.wna.huawei.IapMainActivity")
         }
+        findViewById<MaterialButton>(R.id.btnNavigateToFingerprint).setOnClickListener {
+            navigate("net.c7j.wna.huawei.FingerprintActivity")
+        }
         findViewById<TextView>(R.id.btnHMSAreMissing).setOnClickListener { handleNoHMSAvailable() }
     }
 

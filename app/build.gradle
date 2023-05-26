@@ -74,5 +74,5 @@ dependencies {
     implementation project(path: ':app:maps')
     implementation project(path: ':app:push')
     implementation project(path: ':app:in-app-purchases')
-
+    implementation project(path: ':app:fidokit-fingerprint')
 }

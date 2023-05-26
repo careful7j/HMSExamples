@@ -93,5 +93,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNavigateToFingerprint"
+            android:layout_width="256dp"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_fingerprint"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/btnNavigateToIap"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
