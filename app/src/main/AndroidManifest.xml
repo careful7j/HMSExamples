@@ -96,6 +96,10 @@
 
         <activity android:name="net.c7j.wna.huawei.FingerprintActivity" android:exported="true"/>
 
+        <activity android:name="net.c7j.wna.huawei.SafetyDetectActivity" android:exported="true"/>
+
+
+
         <!-- Express Splash Ads -->
         <receiver
             android:name="net.c7j.wna.huawei.splash.ExSplashBroadcastReceiver"

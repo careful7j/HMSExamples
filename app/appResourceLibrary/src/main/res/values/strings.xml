@@ -224,4 +224,10 @@
     <string name="btn_fingerprint">Fingerprint</string>
     <string name="btn_face_auth">Face auth</string>
 
+    <string name="btn_safety_detect">Safety Detect</string>
+    <string name="btn_root_check">Check device is rooted</string>
+    <string name="btn_malicious_apps_check">Check for malicious apps on device</string>
+    <string name="btn_check_url">Check finishing url</string>
+    <string name="btn_check_user">Check user is a robot</string>
+
 </resources>
