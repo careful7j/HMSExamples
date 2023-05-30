@@ -76,4 +76,5 @@ dependencies {
     implementation project(path: ':app:in-app-purchases')
     implementation project(path: ':app:fidokit-fingerprint')
     implementation project(path: ':app:safety-detect')
+    implementation project(path: ':app:account')
 }

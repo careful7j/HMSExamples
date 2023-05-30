@@ -42,6 +42,9 @@ class MainActivity : BaseActivity() {
         findViewById<MaterialButton>(R.id.btnNavigateToSafetyDetect).setOnClickListener {
             navigate("net.c7j.wna.huawei.SafetyDetectActivity")
         }
+        findViewById<MaterialButton>(R.id.btnNavigateToAccount).setOnClickListener {
+            navigate("net.c7j.wna.huawei.AccountActivity")
+        }
         findViewById<TextView>(R.id.btnHMSAreMissing).setOnClickListener { handleNoHMSAvailable() }
     }
 

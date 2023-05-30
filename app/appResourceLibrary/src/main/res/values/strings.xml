@@ -230,4 +230,11 @@
     <string name="btn_check_url">Check finishing url</string>
     <string name="btn_check_user">Check user is a robot</string>
 
+    <string name="btn_account_kit">Account Kit</string>
+    <string name="btn_cancel_auth">Revoke App Auth</string>
+    <string name="btn_sign_in_via_id_token">Sign in via Id Token</string>
+    <string name="btn_sign_in_via_oauth">Sign in via Oauth</string>
+    <string name="btn_sign_out">Sign out user</string>
+    <string name="btn_account_info">Since example has a special configuration with the other app, the name of the other app appears during the authorization</string>
+
 </resources>

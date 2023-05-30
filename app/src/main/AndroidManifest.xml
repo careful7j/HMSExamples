@@ -98,7 +98,7 @@
 
         <activity android:name="net.c7j.wna.huawei.SafetyDetectActivity" android:exported="true"/>
 
-
+        <activity android:name="net.c7j.wna.huawei.AccountActivity" android:exported="true"/>
 
         <!-- Express Splash Ads -->
         <receiver
