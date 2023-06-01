@@ -44,7 +44,6 @@
             android:layout_height="wrap_content"
             android:text="@string/btn_cancel_auth"
             android:gravity="center"
-            android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/btnSignOut"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -56,6 +55,7 @@
             android:layout_height="wrap_content"
             android:text="@string/btn_sign_in_via_id_token"
             android:gravity="center"
+            android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/HuaweiIdAuthButton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -79,6 +79,17 @@
             android:text="@string/btn_sign_in_via_oauth"
             android:gravity="center"
             app:layout_constraintTop_toBottomOf="@+id/btnSignInViaIdToken"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEnableSmsParser"
+            android:layout_width="256dp"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_enable_sms_reader"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/btnCancelAuth"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             />

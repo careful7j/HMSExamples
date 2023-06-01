@@ -24,6 +24,10 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-feature android:name="android.hardware.camera" android:required="false"/>
 
+    <!-- To test SMS reader (to send sms, is NOT required to read sms!) -->
+<!--    <uses-permission android:name="android.permission.SEND_SMS" />-->
+<!--    <uses-feature android:name="android.hardware.telephony" android:required="false"/>-->
+
     <!-- required by various sdk of HUAWEI Mobile Services, please consider adding it to your manifest file -->
     <queries>
         <intent>

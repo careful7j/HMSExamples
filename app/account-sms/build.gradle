@@ -38,6 +38,8 @@ dependencies {
     // https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-scenario-summary-0000001115918594
     // FAQ (please check quotas & limitations):
     // https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/faq-0000001050048966
+    // SMS reader service consent parser API Reference:
+    // https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/account-support-sms-readsmsmanager-0000001050050553#EN-US_TOPIC_0000001050050553__section1866019915120
     implementation "com.huawei.hms:hwid:6.9.0.301"
 
     implementation "androidx.core:core-ktx:$rootProject.ver.corektx"
