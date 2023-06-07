@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.google.android.material.button.MaterialButton
 import net.c7j.wna.huawei.location.R
 
-//::created by c7j at 12.03.2023 11:20 PM
+
 class LocationMainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,0 +1,49 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.huawei.agconnect'
+}
+
+android {
+    namespace 'net.c7j.wna.huawei.scan'
+    compileSdk rootProject.compilesdk
+
+    defaultConfig {
+        minSdk rootProject.minsdk
+        targetSdk rootProject.targetsdk
+        versionCode 1
+        versionName "1.0"
+        resConfigs "en"  // drop unused resources overhead to speed up examples build
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    // Latest sdk version:
+    // https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-version-change-history-0000001050043947
+    //
+    // Barcode generation (how to make it more readable):
+    // https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/recommended-set-0000001050043983
+//    implementation "com.huawei.hms:scan:2.10.0.301"     // 1.1 mb overhead
+    // This is the same as "scan" but can operate more efficiently on non-huawei devices
+    implementation "com.huawei.hms:scanplus:2.10.0.301"  // 3.1 mb overhead
+
+    implementation "androidx.core:core-ktx:$rootProject.ver.corektx"
+    implementation "androidx.appcompat:appcompat:$rootProject.ver.appcompat"
+    implementation "com.google.android.material:material:$rootProject.ver.material"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.ver.constraintlayout"
+    implementation project(path: ':app:appResourceLibrary')
+}

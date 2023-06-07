@@ -6,7 +6,7 @@ import com.huawei.hms.maps.*
 import com.huawei.hms.maps.model.LatLng
 import net.c7j.wna.huawei.maps.R
 
-//::created by c7j at 10.05.2023 22:34
+
 // Lite map shows static map image of a specified location at a specified zoom level to a user.
 // It is useful when the user wants to show multiple maps on one screen or share location in chat.
 // List of supported functions can be found here:

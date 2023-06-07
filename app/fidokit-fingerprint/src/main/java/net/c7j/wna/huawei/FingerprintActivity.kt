@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.os.CancellationSignal
 import android.os.Handler
 import android.widget.TextView
-import androidx.core.app.ActivityCompat
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import com.google.android.material.button.MaterialButton
 import com.huawei.hms.support.api.fido.bioauthn.BioAuthnCallback
@@ -89,7 +89,7 @@ class FingerprintActivity : BaseActivity() {
         val permissionCheck = ContextCompat.checkSelfPermission(this@FingerprintActivity, Manifest.permission.CAMERA)
         if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
             tvStatus?.append("The camera permission is not enabled. Please enable it.")
-            ActivityCompat.requestPermissions(this@FingerprintActivity, arrayOf(Manifest.permission.CAMERA), 1)
+            if (!checkPermission(Manifest.permission.CAMERA)) cameraPermission.launch(Manifest.permission.CAMERA)
             return
         }
 
@@ -130,6 +130,10 @@ class FingerprintActivity : BaseActivity() {
         val crypto: CryptoObject? = null
         tvStatus?.append("Start face authentication.\nAuthenticating......\n")
         faceManager.auth(crypto, cancellationSignal, flags, callback, handler)
+    }
+
+    private val cameraPermission = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+        if (!isGranted) toast("Grant camera access permission, please")
     }
 
 }

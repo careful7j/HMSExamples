@@ -14,6 +14,7 @@ import android.os.Bundle
 import android.os.Parcelable
 import android.widget.CompoundButton
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.SwitchCompat
 import com.huawei.hms.location.*
 import net.c7j.wna.huawei.LocationBroadcastReceiver.Companion.ACTION_DELIVER_LOCATION
@@ -23,9 +24,8 @@ import net.c7j.wna.huawei.LocationBroadcastReceiver.Companion.EXTRA_HMS_LOCATION
 import net.c7j.wna.huawei.LocationBroadcastReceiver.Companion.EXTRA_HMS_LOCATION_RESULT
 import net.c7j.wna.huawei.LocationBroadcastReceiver.Companion.LOCATION_REQUEST_PERIOD
 import net.c7j.wna.huawei.location.R
-import java.util.ArrayList
 
-//::created by c7j at 23.03.2023 11:11 AM
+
 class ActivityRecognitionAndPeriodicLocationActivity : BaseActivity() {
 
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
@@ -43,6 +43,8 @@ class ActivityRecognitionAndPeriodicLocationActivity : BaseActivity() {
     private lateinit var strActivityRecognitionFailed : String
     private lateinit var strActivityConversionFailed : String
 
+    private val activityRecognitionPermissionName = if (SDK_INT <= Build.VERSION_CODES.P)
+        "com.huawei.hms.permission.ACTIVITY_RECOGNITION" else Manifest.permission.ACTIVITY_RECOGNITION
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,9 +58,7 @@ class ActivityRecognitionAndPeriodicLocationActivity : BaseActivity() {
         activityIdentificationService = ActivityIdentification.getService(this)
 
         toggleRecognition.setOnCheckedChangeListener { _: CompoundButton, enabled: Boolean ->
-            val name = if (SDK_INT <= Build.VERSION_CODES.P)
-                HMS_ACTIVITY_RECOGNITION_OLD else Manifest.permission.ACTIVITY_RECOGNITION
-            requestPermissionByName(name)
+            activityRecognitionPermission.launch(activityRecognitionPermissionName)
             if (enabled) startUserActivityTracking() else stopUserActivityTracking()
         }
     }
@@ -82,8 +82,6 @@ class ActivityRecognitionAndPeriodicLocationActivity : BaseActivity() {
     private val gpsReceiver: BroadcastReceiver = object : BroadcastReceiver() {
 
         override fun onReceive(context: Context, intent: Intent) {
-            // For parcelableArrayList workaround as here parcelableArrayList() see:
-            // https://stackoverflow.com/questions/73019160/android-getparcelableextra-deprecated/73311814#73311814
             if (intent.action == ACTION_DELIVER_LOCATION) {
                 updateActivityIdentificationUI(intent.parcelableArrayList(EXTRA_HMS_LOCATION_RECOGNITION))
                 updateActivityConversionUI(intent.parcelableArrayList(EXTRA_HMS_LOCATION_CONVERSION))
@@ -139,10 +137,7 @@ class ActivityRecognitionAndPeriodicLocationActivity : BaseActivity() {
         removeActivityUpdates()
     }
 
-
-
     private fun requestActivityUpdates() {
-
         try {
             if (pendingIntent != null) removeActivityUpdates()
             pendingIntent = getPendingIntent()
@@ -222,6 +217,9 @@ class ActivityRecognitionAndPeriodicLocationActivity : BaseActivity() {
         strActivityRecognitionFailed = getString(net.c7j.wna.huawei.box.R.string.str_activity_recognition_failed)
     }
 
+    private val activityRecognitionPermission = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+        if (!isGranted) toast("Grant physical activity recognition permission, please")
+    }
 
     // For parcelableArrayList workaround as here parcelableArrayList() see:
     // https://stackoverflow.com/questions/73019160/android-getparcelableextra-deprecated/73311814#73311814
@@ -229,7 +227,6 @@ class ActivityRecognitionAndPeriodicLocationActivity : BaseActivity() {
         SDK_INT >= 33 -> getParcelableArrayListExtra(key, T::class.java)
         else -> @Suppress("DEPRECATION") getParcelableArrayListExtra(key)
     }
-
 
     private fun statusFromCode(var1: Int): String = when (var1) {
         100 -> "VEHICLE"

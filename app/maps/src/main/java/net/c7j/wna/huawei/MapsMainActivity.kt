@@ -6,7 +6,7 @@ import com.huawei.agconnect.AGConnectOptionsBuilder
 import com.huawei.hms.maps.MapsInitializer
 import net.c7j.wna.huawei.maps.R
 
-//::created by c7j at 08.05.2023 11:55 PM
+
 class MapsMainActivity : BaseActivity() {
 
     private fun initializeMapSdk() {

@@ -5,7 +5,7 @@ import android.content.Context
 import android.content.Intent
 import com.huawei.hms.location.GeofenceData
 
-//::created by c7j at 08.04.2023 9:34 PM
+
 class GeofenceBroadcastReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {

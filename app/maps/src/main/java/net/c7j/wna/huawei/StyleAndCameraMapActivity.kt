@@ -14,7 +14,7 @@ import com.huawei.hms.maps.model.LatLngBounds
 import com.huawei.hms.maps.model.MapStyleOptions
 import net.c7j.wna.huawei.maps.R
 
-//::created by c7j at 09.05.2023 17:55 PM
+
 class StyleAndCameraMapActivity : BaseActivity(),
     OnMapReadyCallback,
     HuaweiMap.OnCameraMoveStartedListener,

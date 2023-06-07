@@ -2,6 +2,7 @@ package net.c7j.wna.huawei
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -11,6 +12,8 @@ import android.os.Build
 import android.os.Bundle
 import android.telephony.SmsManager
 import android.view.View
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -28,7 +31,7 @@ import com.huawei.hms.support.sms.common.ReadSmsConstant.READ_SMS_BROADCAST_ACTI
 import net.c7j.wna.huawei.account.R
 
 
-// Auth scenarios are described here:
+// Auth the scenarios are described here:
 // https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-scenario-summary-0000001115918594
 // 1. silentSignInWithoutIdVerification() - Your app can obtain basic information about their HUAWEI IDs,
 // including nickname, profile picture, email address, UnionID, and OpenID.
@@ -108,7 +111,7 @@ class AccountActivity : BaseActivity() {
                 val signInIntent = mAuthManager.signInIntent
                 // If your app appears in full screen mode when a user tries to sign in (Optional):
                 signInIntent.putExtra(CommonConstant.RequestParams.IS_FULL_SCREEN, true)
-                startActivityForResult(signInIntent, REQUEST_SIGN_IN_LOGIN)
+                authResult.launch(signInIntent)
             }
         }
     }
@@ -142,7 +145,7 @@ class AccountActivity : BaseActivity() {
                 val signInIntent: Intent = mAuthManager.signInIntent
                 // If your app appears in full screen mode when a user tries to sign in (Optional):
                 signInIntent.putExtra(CommonConstant.RequestParams.IS_FULL_SCREEN, true)
-                startActivityForResult(signInIntent, REQUEST_SIGN_IN_LOGIN)
+                authResult.launch(signInIntent)
             }
         }
     }
@@ -180,7 +183,7 @@ class AccountActivity : BaseActivity() {
                 val signInIntent = mAuthManager.signInIntent
                 // If your app appears in full screen mode when a user tries to sign in (Optional):
                 signInIntent.putExtra(CommonConstant.RequestParams.IS_FULL_SCREEN, true)
-                startActivityForResult(signInIntent, REQUEST_SIGN_IN_LOGIN)
+                authResult.launch(signInIntent)
             }
         }
     }
@@ -265,23 +268,19 @@ class AccountActivity : BaseActivity() {
                     .show()
             }
         }
-
     }
 
-    @Deprecated("current version of auth sdk yet not supports the new OS method")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == REQUEST_SIGN_IN_LOGIN) { // Login success, get user message by parseAuthResultFromIntent
-            val authAccountTask = AccountAuthManager.parseAuthResultFromIntent(data)
-            if (authAccountTask.isSuccessful) {
-                val authAccount = authAccountTask.result
-                printSuccessAuth(authAccount)
-            } else log("sign in failed: " + (authAccountTask.exception as ApiException).statusCode)
+
+    private val authResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val data = result.data ?: Intent()
+                val authAccountTask = AccountAuthManager.parseAuthResultFromIntent(data)
+                if (authAccountTask.isSuccessful) {
+                    val authAccount = authAccountTask.result
+                    printSuccessAuth(authAccount)
+                } else log("sign in failed: " + (authAccountTask.exception as ApiException).statusCode)
+            }
         }
-    }
 
-
-    companion object {
-        const val REQUEST_SIGN_IN_LOGIN = 1002
-    }
 }

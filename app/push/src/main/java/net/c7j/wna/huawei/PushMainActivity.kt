@@ -1,14 +1,18 @@
 package net.c7j.wna.huawei
 
+import android.Manifest
 import android.content.BroadcastReceiver
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.os.Build
+import android.os.Build.VERSION_CODES.TIRAMISU
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.material.button.MaterialButton
 import com.huawei.agconnect.AGConnectOptionsBuilder
 import com.huawei.hms.aaid.HmsInstanceId
@@ -24,7 +28,7 @@ import kotlinx.coroutines.launch
 import net.c7j.wna.huawei.HuaweiPushService.Companion.HUAWEI_PUSH_ACTION
 import net.c7j.wna.huawei.push.R
 
-// ::created by c7j at 17.05.2023 19:35
+
 class PushMainActivity : BaseActivity() {
 
     var deviceToken : String? = null
@@ -42,6 +46,9 @@ class PushMainActivity : BaseActivity() {
         findViewById<MaterialButton>(R.id.btnCopyToken).setOnClickListener { copyTokenToClipboard() }
         findViewById<MaterialButton>(R.id.btnPushDeeplinkActivity).setOnClickListener {
             navigate("net.c7j.wna.huawei.PushDeeplinkAndTopicActivity")
+        }
+        if (Build.VERSION.SDK_INT >= TIRAMISU && !checkPermission(Manifest.permission.POST_NOTIFICATIONS)) {
+            pushPermission.launch(Manifest.permission.POST_NOTIFICATIONS)
         }
     }
 
@@ -140,6 +147,10 @@ class PushMainActivity : BaseActivity() {
         val clipboardManager: ClipboardManager = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
         clipboardManager.setPrimaryClip(ClipData.newPlainText("nonsense_data", deviceToken))
         toast("token copied to clipboard: $deviceToken")
+    }
+
+    private val pushPermission = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+        if (!isGranted) toast("Grant push notification permission, please")
     }
 
     private val handler = CoroutineExceptionHandler { _, exception -> log(exception.toString()) }

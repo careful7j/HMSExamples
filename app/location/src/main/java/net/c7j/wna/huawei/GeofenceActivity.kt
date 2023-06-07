@@ -16,7 +16,7 @@ import com.huawei.hms.location.*
 import net.c7j.wna.huawei.location.R
 import kotlin.random.Random
 
-//::created by c7j at 05.05.2023 03:40 AM
+
 class GeofenceActivity : BaseActivity() {
 
     private var geofenceService: GeofenceService? = null

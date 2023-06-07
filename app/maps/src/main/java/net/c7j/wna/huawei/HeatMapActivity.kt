@@ -10,7 +10,7 @@ import com.huawei.hms.maps.model.HeatMap
 import com.huawei.hms.maps.model.HeatMapOptions
 import net.c7j.wna.huawei.maps.R
 
-//::created by c7j at 12.05.2023 04:55
+
 class HeatMapActivity : BaseActivity(), OnMapReadyCallback {
 
     private lateinit var mMapView: MapView

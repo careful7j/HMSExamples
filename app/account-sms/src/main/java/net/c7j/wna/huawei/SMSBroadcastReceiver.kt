@@ -3,6 +3,8 @@ package net.c7j.wna.huawei
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.os.Build
+import android.os.Build.VERSION_CODES.TIRAMISU
 import com.huawei.hms.common.api.CommonStatusCodes
 import com.huawei.hms.support.api.client.Status
 import com.huawei.hms.support.sms.common.ReadSmsConstant
@@ -13,7 +15,9 @@ class SmsBroadcastReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
         val bundle = intent!!.extras
         if (bundle != null) {
-            val status: Status? = bundle.getParcelable(ReadSmsConstant.EXTRA_STATUS)
+            val status: Status? = if (Build.VERSION.SDK_INT >= TIRAMISU) {
+                bundle.getParcelable(ReadSmsConstant.EXTRA_STATUS, Status::class.java)
+            } else @Suppress("DEPRECATION") bundle.getParcelable(ReadSmsConstant.EXTRA_STATUS)
             if (status?.statusCode == CommonStatusCodes.TIMEOUT) {
                 // Process system timeout
             } else if (status?.statusCode == CommonStatusCodes.SUCCESS) {

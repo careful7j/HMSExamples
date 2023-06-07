@@ -21,7 +21,7 @@ import net.c7j.wna.huawei.maps.R
 import java.io.ByteArrayOutputStream
 import kotlin.math.pow
 
-//::created by c7j at 12.05.2023 03:51
+
 class MapOverlayActivity : BaseActivity(), OnMapReadyCallback {
 
     private lateinit var mMapView: MapView

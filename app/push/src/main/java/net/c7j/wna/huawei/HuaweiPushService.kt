@@ -9,7 +9,6 @@ import com.huawei.hms.push.RemoteMessage
 import com.huawei.hms.push.SendException
 import java.util.Arrays
 
-// ::created by c7j at 17.05.2023 19:38
 // A basic class of Push Kit for receiving down link messages or updated tokens.
 class HuaweiPushService : HmsMessageService() {
 

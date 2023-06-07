@@ -10,7 +10,7 @@ import com.huawei.hms.ads.reward.RewardAdStatusListener
 import com.huawei.hms.ads.sdk.dialogs.ProtocolDialog
 import net.c7j.wna.huawei.ads.R
 
-//::created by c7j at 27.02.2023 12:38 PM
+
 class AdsNavigationActivity : BaseActivity(), ProtocolDialog.ProtocolDialogCallback {
 
     private lateinit var rewardedAd: RewardAd

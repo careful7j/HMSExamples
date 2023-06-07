@@ -238,4 +238,24 @@
     <string name="btn_sign_out">Sign out user</string>
     <string name="btn_account_info">Since example has a special configuration with the other app, the name of the other app appears during the authorization</string>
 
+    <string name="btn_scan_kit">Scan Kit</string>
+    <string name="btn_scan_default_mode">Default mode scan</string>
+    <string name="btn_scan_customized_mode">Customized mode scan</string>
+    <string name="btn_scan_pick_from_gallery">Pick from Gallery</string>
+    <string name="btn_scan_multi_sync">Multi Scan Sync</string>
+    <string name="btn_scan_multi_async">Multi Scan Async</string>
+
+    <string name="generate_QR_code">Generate QR Code</string>
+    <string name="barcode_width">Barcode width:</string>
+    <string name="barcode_height">Barcode height:</string>
+    <string name="barcode_type">Type:</string>
+    <string name="barcode_color">Color:</string>
+    <string name="barcode_background_color">Background:</string>
+    <string name="barcode_margin">Margin:</string>
+    <string name="width_value">700</string>
+    <string name="height_value">700</string>
+    <string name="generate_barcode">Generate Barcode</string>
+    <string name="save_barcode">Save Barcode</string>
+    <string name="barcode_content">Barcode Content:</string>
+
 </resources>

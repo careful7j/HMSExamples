@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="spinnerarr_type">
+        <item>QR</item>
+        <item>Date Matrix</item>
+        <item>PDF417</item>
+        <item>Aztec</item>
+        <item>EAN-8</item>
+        <item>EAN-13</item>
+        <item>UPC-A</item>
+        <item>UPC-E</item>
+        <item>Codabar</item>
+        <item>Code 39</item>
+        <item>Code 93</item>
+        <item>Code 128</item>
+        <item>ITF</item>
+    </string-array>
+
+
+    <string-array name="spinnerarr_margin">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
+    <string-array name="spinnerarr_color">
+        <item>BLACK</item>
+        <item>BLUE</item>
+        <item>GRAY</item>
+        <item>GREEN</item>
+        <item>RED</item>
+        <item>YELLOW</item>
+    </string-array>
+
+    <string-array name="spinnerarr_backgroundcolor">
+        <item>WHITE</item>
+        <item>YELLOW</item>
+        <item>RED</item>
+        <item>GREEN</item>
+        <item>GRAY</item>
+        <item>BLUE</item>
+        <item>BLACK</item>
+    </string-array>
+
+</resources>

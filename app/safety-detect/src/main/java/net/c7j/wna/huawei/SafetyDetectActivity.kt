@@ -20,11 +20,13 @@ import java.nio.charset.StandardCharsets
 import java.security.NoSuchAlgorithmException
 import java.security.SecureRandom
 
-// This sdk provides 4 features which can improve your application safety:
-// 1. check system integrity (check if device is rooted)
-// 2. check if there are known malicious apps installed on a device
-// 3. check url of a website for malicious/virus/phishing content
-// 4. check if a user currently interacting with the app is a robot (captcha)
+/**
+ * This sdk provides 4 features which can improve your application safety:
+ * @see invokeSysIntegrity()- check system integrity (check if device is rooted)
+ * @see getMaliciousApps()  - check if there are known malicious apps installed on a device
+ * @see performUrlCheck()   - check url of a website for malicious/virus/phishing content
+ * @see performUserDetect() - check if a user currently interacting with the app is a robot (captcha)
+ */
 class SafetyDetectActivity : BaseActivity() {
 
     private var tvInfo: TextView? = null
@@ -199,7 +201,8 @@ class SafetyDetectActivity : BaseActivity() {
 
 
     companion object {
-        // Pages containing potentially malicious apps (such as home page tampering URLs, Trojan-infected URLs, and malicious app download URLs).
+        // Pages containing potentially malicious apps
+        // (such as home page tampering URLs, Trojan-infected URLs, and malicious app download URLs).
         const val MALWARE = 1
         // URLs of this type are marked as phishing and spoofing URLs.
         const val PHISHING = 3

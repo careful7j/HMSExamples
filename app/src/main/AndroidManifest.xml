@@ -20,11 +20,13 @@
     <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" tools:ignore="MockLocation,ProtectedPermissions" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
-    <!-- FIDO (Face recognition biometric auth) -->
+    <!-- Scan kit, ML Kit, FIDO (Face recognition biometric auth) -->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-feature android:name="android.hardware.camera" android:required="false"/>
 
-    <!-- To test SMS reader (to send sms, is NOT required to read sms!) -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
+    <!-- To test SMS reader (to SEND sms, is NOT required to READ sms!) -->
 <!--    <uses-permission android:name="android.permission.SEND_SMS" />-->
 <!--    <uses-feature android:name="android.hardware.telephony" android:required="false"/>-->
 
@@ -103,6 +105,10 @@
         <activity android:name="net.c7j.wna.huawei.SafetyDetectActivity" android:exported="true"/>
 
         <activity android:name="net.c7j.wna.huawei.AccountActivity" android:exported="true"/>
+
+        <activity android:name="net.c7j.wna.huawei.ScanActivity" android:exported="true"/>
+        <activity android:name="net.c7j.wna.huawei.CustomizedScanActivity" android:exported="true"/>
+        <activity android:name="net.c7j.wna.huawei.ScanCodeGenerateActivity" android:exported="true"/>
 
         <!-- Express Splash Ads -->
         <receiver

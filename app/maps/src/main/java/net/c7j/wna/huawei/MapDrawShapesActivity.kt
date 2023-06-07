@@ -9,7 +9,7 @@ import com.huawei.hms.maps.OnMapReadyCallback
 import com.huawei.hms.maps.model.*
 import net.c7j.wna.huawei.maps.R
 
-//::created by c7j at 10.05.2023 23:21 PM
+
 class MapDrawShapesActivity : BaseActivity(), OnMapReadyCallback {
 
     private lateinit var mMapView: MapView

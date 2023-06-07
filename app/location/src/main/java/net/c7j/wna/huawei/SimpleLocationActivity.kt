@@ -12,7 +12,7 @@ import com.huawei.hmf.tasks.Task
 import com.huawei.hms.location.*
 import net.c7j.wna.huawei.location.R
 
-//::created by c7j at 09.03.2023 10:40 PM
+
 class SimpleLocationActivity : BaseActivity() {
 
     private var locationRequest: LocationRequest? = null

@@ -6,7 +6,7 @@ import com.huawei.hms.maps.MapView
 import com.huawei.hms.maps.OnMapReadyCallback
 import net.c7j.wna.huawei.maps.R
 
-//::created by c7j at 08.05.2023 11:55 PM
+
 class SimpleMapActivity : BaseActivity(), OnMapReadyCallback {
 
     private lateinit var mMapView: MapView

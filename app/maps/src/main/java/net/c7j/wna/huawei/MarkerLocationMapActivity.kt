@@ -25,7 +25,7 @@ import com.huawei.hms.maps.model.animation.ScaleAnimation
 import net.c7j.wna.huawei.maps.R
 import kotlin.random.Random
 
-//::created by c7j at 08.05.2023 11:55 PM
+
 class MarkerLocationMapActivity : BaseActivity(), OnMapReadyCallback {
 
     private var huaweiMap: HuaweiMap? = null

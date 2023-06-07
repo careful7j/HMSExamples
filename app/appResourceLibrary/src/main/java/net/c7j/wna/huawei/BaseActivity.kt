@@ -12,11 +12,12 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.huawei.hms.api.ConnectionResult
 import com.huawei.hms.api.HuaweiApiAvailability
 
-//::created by c7j at 28.02.2023 5:12 PM
+
 abstract class BaseActivity : AppCompatActivity() {
 
     //Cross-module navigation
@@ -61,18 +62,6 @@ abstract class BaseActivity : AppCompatActivity() {
             .setCancelable(true)
             .show()
     }
-
-
-    protected fun requestPermissionByName(name: String) {
-        if (shouldShowRequestPermissionRationale(name)) {
-            if (ActivityCompat.checkSelfPermission(this, name) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this, arrayOf(name), PERMISSION_OTHER)
-            }
-        } else if (ActivityCompat.checkSelfPermission(this, name) != PackageManager.PERMISSION_GRANTED) {
-            showPermissionBeggingDialog(PERMISSIONS_HUMAN_READABLE_NAME[name])
-        }
-    }
-
 
     // In case you don't use Jetpack permissions library in your project
     protected fun requestLocationPermissions() {
@@ -146,20 +135,16 @@ abstract class BaseActivity : AppCompatActivity() {
         .isHuaweiMobileServicesAvailable(context) == ConnectionResult.SUCCESS
 
 
+    protected fun checkPermission(permission: String): Boolean {
+        return ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED
+    }
+
     companion object {
         const val PERMISSION_FINE_COARSE_LOCATION = 1
         const val PERMISSION_BACKGROUND_LOCATION = 2
-        const val PERMISSION_OTHER = 3
 
         const val PERMISSION_NAME_LOCATION = "Location"
         const val PERMISSION_NAME_BACKGROUND_LOCATION = "Background Location"
-
-        const val HMS_ACTIVITY_RECOGNITION_OLD = "com.huawei.hms.permission.ACTIVITY_RECOGNITION"
-
-        val PERMISSIONS_HUMAN_READABLE_NAME = mapOf(
-            "com.huawei.hms.permission.ACTIVITY_RECOGNITION" to "Physical activity and Detect motion status",
-            "android.permission.ACTIVITY_RECOGNITION" to "Physical activity and motion status"
-        )
     }
 
 }

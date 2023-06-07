@@ -6,9 +6,10 @@ import com.google.android.material.button.MaterialButton
 import com.huawei.hms.push.HmsMessaging
 import net.c7j.wna.huawei.push.R
 
-// ::created by c7j at 17.05.2023 20:22
+
 // Opens a specified page of an app, and receives data in the customized activity class
 class PushDeeplinkAndTopicActivity : BaseActivity() {
+
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_push_deeplink)
