@@ -12,9 +12,7 @@ class MapsMainActivity : BaseActivity() {
     private fun initializeMapSdk() {
         // Make sure you have already enabled Huawei maps toggle in your AppGallery console at:
         // All Services -> My projects -> Project settings -> Manage APIs -> Map Kit (enable)
-        //
         // You are free to either initialize maps in your Activity or in your Application class
-        // Takes your "api_key" from your agconnect-services.json
         val apiKey = AGConnectOptionsBuilder().build(this@MapsMainActivity).getString("client/api_key")
         MapsInitializer.initialize(this, apiKey)
     }

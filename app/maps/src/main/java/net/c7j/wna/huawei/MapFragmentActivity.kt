@@ -3,12 +3,16 @@ package net.c7j.wna.huawei
 import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.huawei.hms.maps.*
+import com.huawei.hms.maps.CameraUpdateFactory
+import com.huawei.hms.maps.HuaweiMap
+import com.huawei.hms.maps.HuaweiMapOptions
+import com.huawei.hms.maps.OnMapReadyCallback
+import com.huawei.hms.maps.SupportMapFragment
 import com.huawei.hms.maps.model.CameraPosition
 import com.huawei.hms.maps.model.LatLng
 import net.c7j.wna.huawei.maps.R
 
-
+// This activity shows how to show standard map in a fragment
 class MapFragmentActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private var huaweiMap: HuaweiMap? = null

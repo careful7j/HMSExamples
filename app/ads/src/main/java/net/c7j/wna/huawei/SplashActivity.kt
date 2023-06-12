@@ -13,6 +13,7 @@ import com.huawei.hms.ads.splash.SplashView.SplashAdLoadListener
 import net.c7j.wna.huawei.ads.R
 
 @SuppressLint("CustomSplashScreen")
+// This activity shows example of splash screen Ads usage
 class SplashActivity: BaseActivity() {
 
     private lateinit var splashAdView: SplashView

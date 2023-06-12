@@ -7,7 +7,15 @@ import com.huawei.hmf.tasks.Task
 import com.huawei.hms.iap.Iap
 import com.huawei.hms.iap.IapApiException
 import com.huawei.hms.iap.IapClient
-import com.huawei.hms.iap.entity.*
+import com.huawei.hms.iap.entity.ConsumeOwnedPurchaseReq
+import com.huawei.hms.iap.entity.OwnedPurchasesReq
+import com.huawei.hms.iap.entity.OwnedPurchasesResult
+import com.huawei.hms.iap.entity.ProductInfoReq
+import com.huawei.hms.iap.entity.ProductInfoResult
+import com.huawei.hms.iap.entity.PurchaseIntentReq
+import com.huawei.hms.iap.entity.PurchaseIntentResult
+import com.huawei.hms.iap.entity.StartIapActivityReq
+import com.huawei.hms.iap.entity.StartIapActivityResult
 import com.huawei.hms.support.api.client.Status
 
 // IAP Kit interface operating class. All the IAP Kit operating methods are called from here.
@@ -184,6 +192,8 @@ object IapRequestHelper {
 
     // if you ran out of subscriptions to test on, sign in with a different huawei account on your device
     // Important: Developer account DOESN'T HAVE A REFUND BUTTON (except Mainland China).
+
+    // Important: this purchases are real and run on production environment.
     // If you want to make a refund - submit an email to HUAWEI technical support.
     const val TEST_CON1 = "test_consume1"
     const val TEST_CON2 = "test_consume2"

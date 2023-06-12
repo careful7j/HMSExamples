@@ -1,0 +1,64 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.huawei.agconnect'
+}
+
+android {
+    namespace 'net.c7j.wna.huawei.ml'
+    compileSdk rootProject.compilesdk
+
+    defaultConfig {
+        minSdk rootProject.minsdk
+        targetSdk rootProject.targetsdk
+        versionCode 1
+        versionName "1.0"
+        resConfigs "en"  // drop unused resources overhead to speed up examples build
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    // When work on your project, please don't forget to:
+    // 1. Add your signing certificate fingerprint's SHA-256 to AppGallery Developer Console at All Services -> My projects -> Project Settings
+    // if you can't find it, see "Configuring the Signing Certificate Fingerprint" section:
+    // https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050196065#section19713716202718
+    // 2. At the same place, download your agconnect-services.json and put to /app as in this source code example
+    // 3. In AppGallery Developer Console enable corresponding service toggle at:
+    //      All Services -> My projects -> Project settings -> Manage APIs -> ML Kit (enable)
+    //
+    // ML Kit sdk(s) and versions list:
+    // https://developer.huawei.com/consumer/en/doc/development/hiai-Guides/overview-sdk-0000001051070278#EN-US_TOPIC_0000001051070278__li1842231414318
+    // Please, check your free usage quota as described in the document:
+    // https://developer.huawei.com/consumer/en/doc/development/hiai-Guides/enable-service-0000001050038078
+
+    // There are 30 sdk in total, this example covers only 3 ML Kit sdk which are most commonly used:
+    // Bank card recognition sdk
+    implementation "com.huawei.hms:ml-computer-card-bcr:3.7.0.302"
+    // Human voice recognition sdk
+    implementation "com.huawei.hms:ml-computer-voice-asr:3.11.0.301"
+    // Text-to-speech sdk
+    implementation "com.huawei.hms:ml-computer-voice-tts:3.11.0.301"
+
+    // Optional dependency: will show "please install HMS" dialogue on devices which don't have HMS
+    implementation "com.huawei.hms:hmscoreinstaller:6.9.0.300"
+
+    implementation "androidx.core:core-ktx:$rootProject.ver.corektx"
+    implementation "androidx.appcompat:appcompat:$rootProject.ver.appcompat"
+    implementation "com.google.android.material:material:$rootProject.ver.material"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.ver.constraintlayout"
+    implementation project(path: ':app:appResourceLibrary')
+}

@@ -16,8 +16,15 @@ import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.material.button.MaterialButton
-import com.huawei.hms.maps.*
-import com.huawei.hms.maps.model.*
+import com.huawei.hms.maps.CameraUpdateFactory
+import com.huawei.hms.maps.HuaweiMap
+import com.huawei.hms.maps.MapView
+import com.huawei.hms.maps.OnMapReadyCallback
+import com.huawei.hms.maps.model.BitmapDescriptor
+import com.huawei.hms.maps.model.BitmapDescriptorFactory
+import com.huawei.hms.maps.model.LatLng
+import com.huawei.hms.maps.model.Marker
+import com.huawei.hms.maps.model.MarkerOptions
 import com.huawei.hms.maps.model.animation.AlphaAnimation
 import com.huawei.hms.maps.model.animation.Animation
 import com.huawei.hms.maps.model.animation.AnimationSet
@@ -25,7 +32,7 @@ import com.huawei.hms.maps.model.animation.ScaleAnimation
 import net.c7j.wna.huawei.maps.R
 import kotlin.random.Random
 
-
+// This activity shows how to use map markers, marker clusters and how to animate markers
 class MarkerLocationMapActivity : BaseActivity(), OnMapReadyCallback {
 
     private var huaweiMap: HuaweiMap? = null

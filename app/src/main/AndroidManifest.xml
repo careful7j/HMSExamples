@@ -2,11 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Analytics Kit, Ads Kit -->
+    <!-- Almost all Kits -->
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <!-- Location Kit -->
+    <uses-permission android:name="com.huawei.hms.permission.ACTIVITY_RECOGNITION" />
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" tools:ignore="MockLocation,ProtectedPermissions" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <!-- Approximate Location -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -15,15 +19,13 @@
     <!-- Since android 10 background location access requires user permission -->
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
-    <uses-permission android:name="com.huawei.hms.permission.ACTIVITY_RECOGNITION" />
-    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
-    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" tools:ignore="MockLocation,ProtectedPermissions" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-
     <!-- Scan kit, ML Kit, FIDO (Face recognition biometric auth) -->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-feature android:name="android.hardware.camera" android:required="false"/>
 
+    <!-- ML Kit voice recognition -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- Push Kit -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
 
     <!-- To test SMS reader (to SEND sms, is NOT required to READ sms!) -->
@@ -57,7 +59,7 @@
 
         <activity android:name="net.c7j.wna.huawei.AnalyticsActivity" android:exported="true"/>
 
-        <activity android:name="net.c7j.wna.huawei.AdsNavigationActivity" android:exported="true"/>
+        <activity android:name="net.c7j.wna.huawei.AdsRewardedNavigationActivity" android:exported="true"/>
         <activity android:name="net.c7j.wna.huawei.BannerActivity" android:exported="true"/>
         <activity android:name="net.c7j.wna.huawei.NativeActivity" android:exported="true"/>
         <activity android:name="net.c7j.wna.huawei.InterstitialActivity" android:exported="true"/>
@@ -109,6 +111,11 @@
         <activity android:name="net.c7j.wna.huawei.ScanActivity" android:exported="true"/>
         <activity android:name="net.c7j.wna.huawei.CustomizedScanActivity" android:exported="true"/>
         <activity android:name="net.c7j.wna.huawei.ScanCodeGenerateActivity" android:exported="true"/>
+
+        <activity android:name="net.c7j.wna.huawei.MLBankActivity" android:exported="true"/>
+        <activity android:name="net.c7j.wna.huawei.MLMainActivity" android:exported="true"/>
+        <activity android:name="net.c7j.wna.huawei.MLTTSActivity" android:exported="true"/>
+        <activity android:name="net.c7j.wna.huawei.MLVoiceActivity" android:exported="true"/>
 
         <!-- Express Splash Ads -->
         <receiver

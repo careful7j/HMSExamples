@@ -25,7 +25,9 @@ import net.c7j.wna.huawei.LocationBroadcastReceiver.Companion.EXTRA_HMS_LOCATION
 import net.c7j.wna.huawei.LocationBroadcastReceiver.Companion.LOCATION_REQUEST_PERIOD
 import net.c7j.wna.huawei.location.R
 
-
+// This activity shows how to:
+// - periodically receive location
+// - recognize user current physical activity and physical activity conversion (change from one to another)
 class ActivityRecognitionAndPeriodicLocationActivity : BaseActivity() {
 
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient

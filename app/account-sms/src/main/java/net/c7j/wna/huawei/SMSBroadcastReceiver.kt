@@ -9,12 +9,14 @@ import com.huawei.hms.common.api.CommonStatusCodes
 import com.huawei.hms.support.api.client.Status
 import com.huawei.hms.support.sms.common.ReadSmsConstant
 
-
+// This receiver takes SMS code after user agrees on reading and forwards parsed sms code to AccountActivity receiver
+// There are TWO receivers! one is here, one is in AccountActivity
+// This doesn't require sms read permission. Only user consent dialog agree button click is required.
 class SmsBroadcastReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context?, intent: Intent?) {
-        val bundle = intent!!.extras
-        if (bundle != null) {
+        val bundle = intent?.extras
+        bundle?.let {
             val status: Status? = if (Build.VERSION.SDK_INT >= TIRAMISU) {
                 bundle.getParcelable(ReadSmsConstant.EXTRA_STATUS, Status::class.java)
             } else @Suppress("DEPRECATION") bundle.getParcelable(ReadSmsConstant.EXTRA_STATUS)

@@ -3,9 +3,18 @@ package net.c7j.wna.huawei
 import android.app.Activity
 import android.widget.Toast
 import com.huawei.hms.iap.IapApiException
-import com.huawei.hms.iap.entity.OrderStatusCode.*
+import com.huawei.hms.iap.entity.OrderStatusCode.ORDER_ACCOUNT_AREA_NOT_SUPPORTED
+import com.huawei.hms.iap.entity.OrderStatusCode.ORDER_HWID_NOT_LOGIN
+import com.huawei.hms.iap.entity.OrderStatusCode.ORDER_NOT_ACCEPT_AGREEMENT
+import com.huawei.hms.iap.entity.OrderStatusCode.ORDER_PRODUCT_CONSUMED
+import com.huawei.hms.iap.entity.OrderStatusCode.ORDER_PRODUCT_NOT_OWNED
+import com.huawei.hms.iap.entity.OrderStatusCode.ORDER_PRODUCT_OWNED
+import com.huawei.hms.iap.entity.OrderStatusCode.ORDER_STATE_CANCEL
+import com.huawei.hms.iap.entity.OrderStatusCode.ORDER_STATE_NET_ERROR
+import com.huawei.hms.iap.entity.OrderStatusCode.ORDER_STATE_PARAM_ERROR
+import com.huawei.hms.iap.entity.OrderStatusCode.ORDER_VR_UNINSTALL_ERROR
 
-
+// This handler is used for all types of purchases
 object IapExceptionHandler {
     /** requestCode for pull up the pmsPay page */
     const val REQ_CODE_BUY = 4002

@@ -1,4 +1,4 @@
-package com.huawei.hms.ads.sdk.dialogs
+package net.c7j.wna.huawei.consent
 
 import android.app.AlertDialog
 import android.app.Dialog
@@ -20,13 +20,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.Window
 import android.widget.Button
-import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.TextView
 import net.c7j.wna.huawei.ads.R
-import net.c7j.wna.huawei.consent.AdsConstant
 
-
+// This dialog shows privacy policy example
 class ProtocolDialog(private val mContext: Context)
     : Dialog(mContext, net.c7j.wna.huawei.box.R.style.ads_consent_dialog)
 {

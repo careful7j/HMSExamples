@@ -78,4 +78,5 @@ dependencies {
     implementation project(path: ':app:safety-detect')
     implementation project(path: ':app:account-sms')
     implementation project(path: ':app:scan')
+    implementation project(path: ':app:ml-kit')
 }

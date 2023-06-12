@@ -10,7 +10,7 @@ import com.huawei.hms.iap.entity.OwnedPurchasesResult
 import com.huawei.hms.iap.entity.ProductInfoResult
 import net.c7j.wna.huawei.iap.R
 
-
+// This activity shows how obtain purchase history of products of all kinds
 class IapHistoryActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +30,7 @@ class IapHistoryActivity : BaseActivity() {
         }
     }
 
+    @Suppress("CascadeIf")
     @SuppressLint("SetTextI18n")
     // Obtains the purchase information of all consumed products or the receipts of all subscriptions
     // For consumables (type = 0) and subscriptions (type = 2): obtainOwnedPurchaseRecord()

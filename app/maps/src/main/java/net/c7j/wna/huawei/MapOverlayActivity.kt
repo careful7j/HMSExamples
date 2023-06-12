@@ -21,7 +21,7 @@ import net.c7j.wna.huawei.maps.R
 import java.io.ByteArrayOutputStream
 import kotlin.math.pow
 
-
+// This activity shows how to use "map overlay" feature of maps sdk
 class MapOverlayActivity : BaseActivity(), OnMapReadyCallback {
 
     private lateinit var mMapView: MapView

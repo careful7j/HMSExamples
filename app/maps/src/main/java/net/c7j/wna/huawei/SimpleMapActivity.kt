@@ -6,7 +6,7 @@ import com.huawei.hms.maps.MapView
 import com.huawei.hms.maps.OnMapReadyCallback
 import net.c7j.wna.huawei.maps.R
 
-
+// This example shows how to launch a basic map
 class SimpleMapActivity : BaseActivity(), OnMapReadyCallback {
 
     private lateinit var mMapView: MapView

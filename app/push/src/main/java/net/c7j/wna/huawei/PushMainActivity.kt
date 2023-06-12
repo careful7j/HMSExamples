@@ -28,9 +28,10 @@ import kotlinx.coroutines.launch
 import net.c7j.wna.huawei.HuaweiPushService.Companion.HUAWEI_PUSH_ACTION
 import net.c7j.wna.huawei.push.R
 
-
+/** This example shows how to operate messaging sdk (Push kit) */
 class PushMainActivity : BaseActivity() {
 
+    // Token identifying this device as push message target destination
     var deviceToken : String? = null
 
     // If backend configures message.android.notification.foreground_show parameter to false,

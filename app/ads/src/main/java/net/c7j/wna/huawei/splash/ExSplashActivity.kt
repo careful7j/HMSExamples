@@ -6,15 +6,15 @@ import android.content.IntentFilter
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
-import com.huawei.hms.ads.sdk.dialogs.ProtocolDialog
 import net.c7j.wna.huawei.BaseActivity
 import net.c7j.wna.huawei.ads.R
 import net.c7j.wna.huawei.consent.AdsConstant
+import net.c7j.wna.huawei.consent.ProtocolDialog
 
 
 @SuppressLint("CustomSplashScreen")
-// For More settings of Express Splash Ads
 // Don't mix with Splash Ads (this two are different)
+// For More settings of Express Splash Ads
 // see: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/publisher-service-exsplash-0000001051056577
 class ExSplashActivity : BaseActivity() {
 
@@ -58,7 +58,9 @@ class ExSplashActivity : BaseActivity() {
         }
     }
 
-
+    // ----------------------------
+    //  Privacy (protocol) dialog:
+    // ----------------------------
     private fun showProtocolDialog() {
         val dialog = ProtocolDialog(this)
         dialog.setCallback(object : ProtocolDialog.ProtocolDialogCallback {

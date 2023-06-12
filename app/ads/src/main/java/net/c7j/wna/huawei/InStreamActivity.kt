@@ -11,10 +11,16 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.button.MaterialButton
 import com.huawei.hms.ads.AdParam
 import com.huawei.hms.ads.MediaMuteListener
-import com.huawei.hms.ads.instreamad.*
+import com.huawei.hms.ads.instreamad.InstreamAd
+import com.huawei.hms.ads.instreamad.InstreamAdLoadListener
+import com.huawei.hms.ads.instreamad.InstreamAdLoader
+import com.huawei.hms.ads.instreamad.InstreamMediaChangeListener
+import com.huawei.hms.ads.instreamad.InstreamMediaStateListener
+import com.huawei.hms.ads.instreamad.InstreamView
 import net.c7j.wna.huawei.ads.R
 import kotlin.math.roundToInt
 
+// This activity shows example of in stream video Ads usage
 class InStreamActivity : BaseActivity() {
 
     private var maxAdDuration = 0

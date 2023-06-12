@@ -7,11 +7,11 @@ import com.huawei.hms.ads.reward.Reward
 import com.huawei.hms.ads.reward.RewardAd
 import com.huawei.hms.ads.reward.RewardAdLoadListener
 import com.huawei.hms.ads.reward.RewardAdStatusListener
-import com.huawei.hms.ads.sdk.dialogs.ProtocolDialog
 import net.c7j.wna.huawei.ads.R
+import net.c7j.wna.huawei.consent.ProtocolDialog
 
-
-class AdsNavigationActivity : BaseActivity(), ProtocolDialog.ProtocolDialogCallback {
+// This is main menu activity of Ads Kit example, below you can find Rewarded ads example
+class AdsRewardedNavigationActivity : BaseActivity(), ProtocolDialog.ProtocolDialogCallback {
 
     private lateinit var rewardedAd: RewardAd
 
@@ -62,7 +62,7 @@ class AdsNavigationActivity : BaseActivity(), ProtocolDialog.ProtocolDialogCallb
             navigate("net.c7j.wna.huawei.consent.ConsentActivity")
         }
         findViewById<MaterialButton>(R.id.btn_express_splash_ads).setOnClickListener {
-            navigate("net.c7j.wna.huawei.expresssplash.ExSplashActivity")
+            navigate("net.c7j.wna.huawei.splash.ExSplashActivity")
         }
         findViewById<MaterialButton>(R.id.btn_privacy_agreement).setOnClickListener {
             showProtocolDialog()

@@ -32,30 +32,29 @@ android {
 }
 
 dependencies {
-    // Don't forget to:
-    // 1. Sign your app with your developer certificate SHA-256 fingerprint you added to AppGallery Connect console (2)
-    // 2. Download and add agconnect-services.json to your /app package, how to obtain:
-    // https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-get-started-android-0000001058210705#section641530103413
-
-    // Useful links:
-    // 1. Documentation itself: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-dev-process-0000001050163813
-    // 2. API Reference: https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/android-api-hianalytics-0000001050707170
-    // 3. FAQ: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/no-data-scenario-0000001351274365
-    // 4. Latest sdk version: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/version-change-history-0000001050705116
-    // 5. Proguard/R8 Rules:  https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-appendix-d-0000001445762876
-    // 6. Debug mode to realtime test events: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-accessing-0000001050161888#section1284414416588
-    implementation "com.huawei.hms:hianalytics:6.9.0.302" // +190 kb overhead +400kb HMS Core overhead
+    // When work on your own project, please don't forget to:
+    // 1. Add your signing certificate fingerprint's SHA-256 to AppGallery Developer Console at All Services -> My projects -> Project Settings
+    // if you can't find it, see "Configuring the Signing Certificate Fingerprint" section:
+    // https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050196065#section19713716202718
+    // 2. At the same place, download your agconnect-services.json and put to /app as in this source code example
+    // 3. In AppGallery Developer Console enable corresponding service toggle at:
+    //      All Services -> My projects -> Project settings -> Manage APIs -> HUAWEI Analytics (enable)
+    //
+    // 1. API Reference: https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/android-api-hianalytics-0000001050707170
+    // 2. FAQ: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/no-data-scenario-0000001351274365
+    // 3. Latest sdk version: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/version-change-history-0000001050705116
+    // 4. Debug mode to realtime test events: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-accessing-0000001050161888#section1284414416588
+    implementation "com.huawei.hms:hianalytics:6.9.0.302"
 
     // This SDK starts itself. You only need to declare a dependency in your build.gradle as below,
     // nothing else is required except special case at useful link (4) below:
     // Useful links:
-    // 1. Documentation itself: https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-crash-integratesdk-android-0000001275810158
-    // 2. De-obfuscated crash reports: https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-crash-mapping-0000001055420529
-    // 3. Latest sdk version: https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-crash-sdkchangenotes-0000001054941952
-    // 4. In case your app has multiple processes add initialization to your Application class as declared here:
+    // 1. De-obfuscated crash reports: https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-crash-mapping-0000001055420529
+    // 2. Latest sdk version: https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-crash-sdkchangenotes-0000001054941952
+    // 3. In case your app has multiple processes add initialization to your Application class as declared here:
     // https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-crash-integratesdk-android-0000001275810158#section1751113451928
-    implementation 'com.huawei.agconnect:agconnect-crash:1.8.0.300' // +42 kb overhead +150kb AGC Core overhead
-    // In multi-module project, it is sufficient to declare this dependency in only ONE module.
+    // 4. In multi-module project, it is sufficient to declare this dependency in only ONE module.
+    implementation 'com.huawei.agconnect:agconnect-crash:1.8.0.300'
 
     implementation "androidx.core:core-ktx:$rootProject.ver.corektx"
     implementation "androidx.appcompat:appcompat:$rootProject.ver.appcompat"

@@ -10,7 +10,7 @@ import com.huawei.hms.maps.model.HeatMap
 import com.huawei.hms.maps.model.HeatMapOptions
 import net.c7j.wna.huawei.maps.R
 
-
+// This activity shows how to use "heatmap" feature of maps sdk
 class HeatMapActivity : BaseActivity(), OnMapReadyCallback {
 
     private lateinit var mMapView: MapView

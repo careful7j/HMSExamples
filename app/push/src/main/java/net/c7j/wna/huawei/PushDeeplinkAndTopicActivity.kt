@@ -6,7 +6,6 @@ import com.google.android.material.button.MaterialButton
 import com.huawei.hms.push.HmsMessaging
 import net.c7j.wna.huawei.push.R
 
-
 // Opens a specified page of an app, and receives data in the customized activity class
 class PushDeeplinkAndTopicActivity : BaseActivity() {
 

@@ -31,11 +31,12 @@ android {
 }
 
 dependencies {
-    // Don't forget to:
-    // 1. Sign your app with your developer certificate SHA-256 fingerprint you added to AppGallery Connect console (2)
-    // 2. Download and add agconnect-services.json to your /app package, how to obtain:
-    // https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-get-started-android-0000001058210705#section641530103413
-
+    // When work on your project, please don't forget to:
+    // 1. Add your signing certificate fingerprint's SHA-256 to AppGallery Developer Console at All Services -> My projects -> Project Settings
+    // if you can't find it, see "Configuring the Signing Certificate Fingerprint" section:
+    // https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050196065#section19713716202718
+    // 2. At the same place, download your agconnect-services.json and put to /app as in this source code example
+    //
     // 3. Open AGConnect: https://developer.huawei.com/consumer/ru/console#/serviceCards/AppService
     // 4. DISABLE AD BLOCK in your browser
     // 5. Pick "Publisher Service" and create your production Ad ids there
@@ -43,7 +44,8 @@ dependencies {
     // to test your business logic you can use test identifiers from donottranslate.xml of this project.
 
     //-------------------------------
-    // Important! Error codes: https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/android-error-code-0000001130129080
+    // Important! Error codes:
+    // https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/android-error-code-0000001130129080
     //
     // Additional reasons you may face Error code: 3, NOT mentioned in the documentation:
     // - there is no SIM card in your device
@@ -61,10 +63,10 @@ dependencies {
 
     // Documentation: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/publisher-service-integrating-sdk-0000001050066913
     // Latest sdk version: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/publisher-service-version-change-history-0000001050066909
-    implementation 'com.huawei.hms:ads-prime:3.4.61.302' // +777kb overhead +400kb HMS Core overhead
+    implementation 'com.huawei.hms:ads-prime:3.4.61.302'
 
-    // If you plan to use Huawei Ads Kit only on HUAWEI devices, is recommended light weight sdk:
-//    implementation 'com.huawei.hms:ads-lite:13.4.61.302' // +761kb overhead on .ads package
+    // If you plan to use Huawei Ads Kit only on HUAWEI devices, is recommended light weight sdk (instead of ads-prime):
+//    implementation 'com.huawei.hms:ads-lite:13.4.61.302'
 
     // To collect open advertisement identifier (OAID) if you require it at any of your services
     // Documentation: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/identifier-service-integrating-sdk-0000001056460552

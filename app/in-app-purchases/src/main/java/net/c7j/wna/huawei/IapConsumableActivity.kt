@@ -13,6 +13,7 @@ import com.huawei.hms.iap.entity.PurchaseIntentResult
 import net.c7j.wna.huawei.IapExceptionHandler.REQ_CODE_BUY
 import net.c7j.wna.huawei.iap.R
 
+// This activity shows how to purchase/consume consumable goods
 // Consumable goods can be consumed and purchased again and again
 class IapConsumableActivity : BaseActivity(), IapResultCallback {
 

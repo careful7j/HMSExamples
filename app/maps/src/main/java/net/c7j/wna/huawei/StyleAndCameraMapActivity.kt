@@ -14,7 +14,7 @@ import com.huawei.hms.maps.model.LatLngBounds
 import com.huawei.hms.maps.model.MapStyleOptions
 import net.c7j.wna.huawei.maps.R
 
-
+// This example shows how to apply style to a map and how to operate map camera (viewport)
 class StyleAndCameraMapActivity : BaseActivity(),
     OnMapReadyCallback,
     HuaweiMap.OnCameraMoveStartedListener,

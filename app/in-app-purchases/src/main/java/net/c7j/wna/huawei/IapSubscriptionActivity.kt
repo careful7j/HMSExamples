@@ -11,10 +11,10 @@ import com.huawei.hms.iap.entity.ProductInfoResult
 import com.huawei.hms.iap.entity.PurchaseIntentResult
 import net.c7j.wna.huawei.iap.R
 
-
+// This activity shows how to purchase subscriptions
 class IapSubscriptionActivity : BaseActivity(), IapResultCallback {
 
-    val sub = IapRequestHelper.TEST_SUB1
+    val sub = IapRequestHelper.TEST_SUB1 // you can replace with other products from helper when testing
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

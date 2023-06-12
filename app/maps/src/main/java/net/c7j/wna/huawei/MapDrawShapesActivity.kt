@@ -6,10 +6,22 @@ import com.google.android.material.button.MaterialButton
 import com.huawei.hms.maps.HuaweiMap
 import com.huawei.hms.maps.MapView
 import com.huawei.hms.maps.OnMapReadyCallback
-import com.huawei.hms.maps.model.*
+import com.huawei.hms.maps.model.ButtCap
+import com.huawei.hms.maps.model.Circle
+import com.huawei.hms.maps.model.CircleOptions
+import com.huawei.hms.maps.model.Dash
+import com.huawei.hms.maps.model.Dot
+import com.huawei.hms.maps.model.Gap
+import com.huawei.hms.maps.model.LatLng
+import com.huawei.hms.maps.model.PatternItem
+import com.huawei.hms.maps.model.Polygon
+import com.huawei.hms.maps.model.PolygonOptions
+import com.huawei.hms.maps.model.Polyline
+import com.huawei.hms.maps.model.PolylineOptions
+import com.huawei.hms.maps.model.RoundCap
 import net.c7j.wna.huawei.maps.R
 
-
+// This activity shows how to draw shapes above the map (like circle, polyline, polygon e.t.c)
 class MapDrawShapesActivity : BaseActivity(), OnMapReadyCallback {
 
     private lateinit var mMapView: MapView

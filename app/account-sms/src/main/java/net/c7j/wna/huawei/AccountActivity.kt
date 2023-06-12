@@ -30,67 +30,58 @@ import com.huawei.hms.support.sms.ReadSmsManager
 import com.huawei.hms.support.sms.common.ReadSmsConstant.READ_SMS_BROADCAST_ACTION
 import net.c7j.wna.huawei.account.R
 
-
-// Auth the scenarios are described here:
-// https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-scenario-summary-0000001115918594
-// 1. silentSignInWithoutIdVerification() - Your app can obtain basic information about their HUAWEI IDs,
-// including nickname, profile picture, email address, UnionID, and OpenID.
-// 2. silentSignInViaIdToken() - Sign in via ID token through the OpenID Connect protocol, Your app will obtain
-// the user's ID token for identity verification, enabling the user to securely sign in.
-// 3. silentSignInOauth() - Your app will obtain the user's authorization code (temporary authorization credential)
-// for identity verification, enabling secure sign-in. After the user's identity verification information expires,
-// your app server will use the refresh token to request a new access token from the Account Kit server.
-// 4. Quick HUAWEI ID Sign-In to Apps That Apply for Only the OpenID or UnionID (is not covered by this example):
-// https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-scenario-openid-unionid-0000001210738701
-// 5. Independent Authorization (is not covered by this example), see more at official documentation:
-// https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/independentsignin-0000001140395573
-//
-// Important! Please use HUAWEI ID button according to the guidelines:
-// https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/huaweiidauthbutton-0000001050179025
-//
-// SMS Parser do NOT Require SMS permission in the implementation below
-// SMS Parser API Reference:
-// https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/account-support-sms-readsmsmanager-0000001050050553-V5#EN-US_TOPIC_0000001050050553__section1866019915120
+/**
+ * Auth the scenarios are described here:
+ * https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-scenario-summary-0000001115918594
+ *
+ * Your app can obtain basic information about their HUAWEI IDs,
+ * including nickname, profile picture, email address, UnionID, and OpenID:
+ * @see silentSignInWithoutIdVerification()
+ *
+ * Sign in via ID token through the OpenID Connect protocol, Your app will obtain
+ * the user's ID token for identity verification, enabling the user to securely sign in:
+ * @see silentSignInViaIdToken()
+ *
+ * Your app will obtain the user's authorization code (temporary authorization credential)
+ * for identity verification, enabling secure sign-in. After the user's identity verification information expires,
+ * your app server will use the refresh token to request a new access token from the Account Kit server:
+ * @see silentSignInOauth()
+ */
+ // 4. Quick HUAWEI ID Sign-In to Apps That Apply for Only the OpenID or UnionID (is not covered by this example):
+ // https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-scenario-openid-unionid-0000001210738701
+ //
+ // 5. Independent Authorization (is not covered by this example):
+ // https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/independentsignin-0000001140395573
+ //
+ // Important! Please use HUAWEI ID button according to the guidelines:
+ // https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/huaweiidauthbutton-0000001050179025
+ //
+ // SMS Parser do NOT Require SMS permission in the implementation below. SMS Parser API Reference:
+ // https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/account-support-sms-readsmsmanager-0000001050050553-V5#EN-US_TOPIC_0000001050050553__section1866019915120
 class AccountActivity : BaseActivity() {
 
     private lateinit var mAuthManager: AccountAuthService
     private lateinit var mAuthParam: AccountAuthParams
     private var appId: String = ""
+    // Your SMS to read shall come from this phone number:
+    private var phoneNumberToReceiveSMSFrom : String = "+700000000000"
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_account)
-        findViewById<View>(R.id.HuaweiIdAuthButton).setOnClickListener { silentSignInWithoutIdVerification() }
-        findViewById<View>(R.id.btnCancelAuth).setOnClickListener { revokeAuth() }
-        findViewById<View>(R.id.btnSignOut).setOnClickListener { signOut() }
-        findViewById<View>(R.id.btnSignInViaIdToken).setOnClickListener { silentSignInViaIdToken() }
-        findViewById<View>(R.id.btnSignInViaOauth).setOnClickListener { silentSignInOauth() }
-        findViewById<View>(R.id.btnEnableSmsParser).setOnClickListener { enableSMSByConsentParser() }
+        initViews()
         appId = AGConnectOptionsBuilder().build(this@AccountActivity).getString("client/app_id")
         registerReceiver(deliverSMSContentReceiver, IntentFilter(SmsBroadcastReceiver.ACTION_SMS_READ_BROADCAST))
     }
 
-    // Signs user out from his account.
-    private fun signOut() {
-        mAuthParam = AccountAuthParamsHelper(AccountAuthParams.DEFAULT_AUTH_REQUEST_PARAM)
-            .setIdToken()
-            .setAccessToken()
-            .createParams()
-        mAuthManager = AccountAuthManager.getService(this@AccountActivity, mAuthParam)
-        val signOutTask = mAuthManager.signOut()
-        signOutTask
-            ?.addOnSuccessListener { log("sign out success").also { toast("sign out success") } }
-            ?.addOnFailureListener { log("sign out fail") }
-    }
-
     /**
-     * With this method your app can obtain basic information about their HUAWEI IDs,
+     * With this method your app can obtain basic information about user HUAWEI ID,
      * including nickname, profile picture, email address, UnionID, and OpenID.
      * Silent sign-in: If a user has authorized your app and signed in -
      * no authorization or sign-in screen will appear during subsequent sign-ins, and the user will directly sign in.
      * If the user has not authorized your app or signed in, your app will show the authorization or sign-in screen.
      */
-    @Deprecated("current version of auth sdk yet not supports the new OS method")
     private fun silentSignInWithoutIdVerification() {
         // Use AccountAuthParams to specify the user information to be obtained after user authorization,
         // including the user ID (OpenID and UnionID), email address, and profile (nickname and picture).
@@ -123,7 +114,6 @@ class AccountActivity : BaseActivity() {
      * no authorization or sign-in screen will appear during subsequent sign-ins, and the user will directly sign in.
      * If the user has not authorized your app or signed in, your app will show the authorization or sign-in screen.
      */
-    @Deprecated("current version of auth sdk yet not supports the new OS method")
     private fun silentSignInViaIdToken() {
         // Use AccountAuthParams to specify the user information to be obtained after user authorization,
         // including the user ID (OpenID and UnionID), email address, and profile (nickname and picture).
@@ -159,7 +149,6 @@ class AccountActivity : BaseActivity() {
      * no authorization or sign-in screen will appear during subsequent sign-ins, and the user will directly sign in.
      * If the user has not authorized your app or signed in, your app will show the authorization or sign-in screen.
      */
-    @Deprecated("current version of auth sdk yet not supports the new OS method")
     private fun silentSignInOauth() {
         // Use AccountAuthParams to specify the user information to be obtained after user authorization,
         // including the user ID (OpenID and UnionID), email address, and profile (nickname and picture).
@@ -186,6 +175,19 @@ class AccountActivity : BaseActivity() {
                 authResult.launch(signInIntent)
             }
         }
+    }
+
+    // Signs user out from his account
+    private fun signOut() {
+        mAuthParam = AccountAuthParamsHelper(AccountAuthParams.DEFAULT_AUTH_REQUEST_PARAM)
+            .setIdToken()
+            .setAccessToken()
+            .createParams()
+        mAuthManager = AccountAuthManager.getService(this@AccountActivity, mAuthParam)
+        val signOutTask = mAuthManager.signOut()
+        signOutTask
+            ?.addOnSuccessListener { log("sign out success").also { toast("sign out success") } }
+            ?.addOnFailureListener { log("sign out fail") }
     }
 
     // To improve privacy & security, your app should allow users to cancel authorization
@@ -222,16 +224,15 @@ class AccountActivity : BaseActivity() {
 
     // This method can be used to test enableSMSByConsentParser() method below
     // This method requires SEND_SMS permission (please, see commented lines in AndroidManifest.xml)
-    @SuppressLint("ObsoleteSdkInt")
     private fun sendSMS() {
         val permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS)
         if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
-            val smsManager: SmsManager = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            @SuppressLint("ObsoleteSdkInt") val smsManager: SmsManager = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 this@AccountActivity.getSystemService(SmsManager::class.java)
             } else SmsManager.getDefault()
 
             smsManager.sendTextMessage(
-                "+70000000000",  // phone number to send to (yes you can send to yourself)
+                phoneNumberToReceiveSMSFrom,  // phone number to send to (you can send sms to yourself)
                 null,
                 "Your verification code is 1234",
                 null,
@@ -240,17 +241,27 @@ class AccountActivity : BaseActivity() {
         } else ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.SEND_SMS), 1008)
     }
 
-    // This launches SMS listening. After SMS from a defined phone number comes, receiver is triggered.
+    // This launches SMS listening. After SMS from a defined phone number comes, receiver is triggered
     private fun enableSMSByConsentParser() {
         val intentFilter = IntentFilter(READ_SMS_BROADCAST_ACTION)
         registerReceiver(SmsBroadcastReceiver(), intentFilter)
-        // ReadSmsManager.startConsent(context, phone number to await SMS from - sms from other numbers won't work)
-        val task = ReadSmsManager.startConsent(this@AccountActivity, "+70000000000") // change it to yours!
+        // phoneNumberToReceiveSMSFrom - Phone number to await SMS from - sms from other numbers won't be read)
+        val task = ReadSmsManager.startConsent(this@AccountActivity, phoneNumberToReceiveSMSFrom) // change it to yours!
         task.addOnCompleteListener {
             if (task.isSuccessful) {
                 toast("SMS listener awaiting").also{ log("SMS listener awaiting") }
             } else toast("ReadSmsManager failed to start").also{ log("ReadSmsManager failed to start") }
         }
+    }
+
+
+    private fun initViews() {
+        findViewById<View>(R.id.HuaweiIdAuthButton).setOnClickListener { silentSignInWithoutIdVerification() }
+        findViewById<View>(R.id.btnCancelAuth).setOnClickListener { revokeAuth() }
+        findViewById<View>(R.id.btnSignOut).setOnClickListener { signOut() }
+        findViewById<View>(R.id.btnSignInViaIdToken).setOnClickListener { silentSignInViaIdToken() }
+        findViewById<View>(R.id.btnSignInViaOauth).setOnClickListener { silentSignInOauth() }
+        findViewById<View>(R.id.btnEnableSmsParser).setOnClickListener { enableSMSByConsentParser() }
     }
 
     // Delivers caught sms content from SMSBroadcastReceiver to AccountActivity

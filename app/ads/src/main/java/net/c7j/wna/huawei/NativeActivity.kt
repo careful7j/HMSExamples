@@ -10,9 +10,14 @@ import com.google.android.material.button.MaterialButton
 import com.huawei.hms.ads.AdListener
 import com.huawei.hms.ads.AdParam
 import com.huawei.hms.ads.VideoOperator.VideoLifecycleListener
-import com.huawei.hms.ads.nativead.*
+import com.huawei.hms.ads.nativead.MediaView
+import com.huawei.hms.ads.nativead.NativeAd
+import com.huawei.hms.ads.nativead.NativeAdConfiguration
+import com.huawei.hms.ads.nativead.NativeAdLoader
+import com.huawei.hms.ads.nativead.NativeView
 import net.c7j.wna.huawei.ads.R
 
+// This activity shows example of native banner Ads usage
 class NativeActivity : BaseActivity() {
 
     private lateinit var nativeAd: NativeAd

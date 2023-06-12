@@ -32,6 +32,14 @@ android {
 }
 
 dependencies {
+    // When work on your project, please don't forget to:
+    // 1. Add your signing certificate fingerprint's SHA-256 to AppGallery Developer Console at All Services -> My projects -> Project Settings
+    // if you can't find it, see "Configuring the Signing Certificate Fingerprint" section:
+    // https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050196065#section19713716202718
+    // 2. At the same place, download your agconnect-services.json and put to /app as in this source code example
+    // 3. In AppGallery Developer Console enable corresponding service toggle at:
+    //      All Services -> My projects -> Project settings -> Manage APIs -> ML Kit (enable)
+    //
     // Latest sdk version:
     // https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-version-change-history-0000001050043947
     //

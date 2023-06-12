@@ -22,7 +22,7 @@ class MainActivity : BaseActivity() {
             navigate("net.c7j.wna.huawei.AnalyticsActivity")
         }
         findViewById<MaterialButton>(R.id.btnNavigateToAds).setOnClickListener {
-            navigate("net.c7j.wna.huawei.AdsNavigationActivity")
+            navigate("net.c7j.wna.huawei.AdsRewardedNavigationActivity")
         }
         findViewById<MaterialButton>(R.id.btnNavigateToLocation).setOnClickListener {
             navigate("net.c7j.wna.huawei.LocationMainActivity")
@@ -47,6 +47,9 @@ class MainActivity : BaseActivity() {
         }
         findViewById<MaterialButton>(R.id.btnNavigateToScan).setOnClickListener {
             navigate("net.c7j.wna.huawei.ScanActivity")
+        }
+        findViewById<MaterialButton>(R.id.btnNavigateToML).setOnClickListener {
+            navigate("net.c7j.wna.huawei.MLMainActivity")
         }
         findViewById<TextView>(R.id.btnHMSAreMissing).setOnClickListener { handleNoHMSAvailable() }
     }

@@ -12,7 +12,7 @@ import com.huawei.hmf.tasks.Task
 import com.huawei.hms.location.*
 import net.c7j.wna.huawei.location.R
 
-
+// This activity shows how to get simple location
 class SimpleLocationActivity : BaseActivity() {
 
     private var locationRequest: LocationRequest? = null

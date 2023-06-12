@@ -22,7 +22,7 @@ import com.huawei.hms.ads.consent.constant.ConsentStatus
 import com.huawei.hms.ads.consent.inter.Consent
 import net.c7j.wna.huawei.ads.R
 
-
+// This dialog obtains consent from your users for the collection, use and sharing their personal data for personalized ads
 class ConsentDialog(
     private val mContext: Context,
     private val madProviders: List<AdProvider>

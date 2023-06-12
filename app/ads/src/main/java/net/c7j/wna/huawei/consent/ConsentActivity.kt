@@ -2,20 +2,27 @@ package net.c7j.wna.huawei.consent
 
 import android.os.Bundle
 import android.widget.TextView
-import com.huawei.hms.ads.*
+import com.huawei.hms.ads.AdListener
+import com.huawei.hms.ads.AdParam
+import com.huawei.hms.ads.BannerAdSize
+import com.huawei.hms.ads.HwAds
+import com.huawei.hms.ads.RequestOptions
+import com.huawei.hms.ads.UnderAge
 import com.huawei.hms.ads.banner.BannerView
 import com.huawei.hms.ads.consent.bean.AdProvider
 import com.huawei.hms.ads.consent.constant.ConsentStatus
 import com.huawei.hms.ads.consent.constant.DebugNeedConsent
 import com.huawei.hms.ads.consent.inter.Consent
 import com.huawei.hms.ads.consent.inter.ConsentUpdateListener
-import net.c7j.wna.huawei.consent.ConsentDialog.ConsentDialogCallback
 import net.c7j.wna.huawei.BaseActivity
 import net.c7j.wna.huawei.ads.R
+import net.c7j.wna.huawei.consent.ConsentDialog.ConsentDialogCallback
 import net.c7j.wna.huawei.log
-import java.util.*
 
-
+/**
+ * Obtain consent from your users for the collection, use and sharing their personal data for personalized ads
+ * This example shows how to manage your ads based on user's consent status
+ */
 class ConsentActivity : BaseActivity(), ConsentDialogCallback {
 
     private var adView: BannerView? = null

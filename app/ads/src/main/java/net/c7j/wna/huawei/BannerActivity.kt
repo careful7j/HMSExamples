@@ -12,6 +12,7 @@ import com.huawei.hms.ads.BannerAdSize
 import com.huawei.hms.ads.banner.BannerView
 import net.c7j.wna.huawei.ads.R
 
+// This activity shows example of standard banner Ads usage
 class BannerActivity : BaseActivity() {
 
     private lateinit var bannerView: BannerView

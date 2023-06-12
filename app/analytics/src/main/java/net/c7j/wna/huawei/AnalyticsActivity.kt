@@ -28,7 +28,7 @@ class AnalyticsActivity : BaseActivity() {
         // adb shell setprop debug.huawei.hms.analytics.app .none
         // https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-accessing-0000001050161888#section1284414416588
         setUpUserId()
-        initNavigation()
+        initViews()
     }
 
     // (Optional) Binds user session with some identifier, for instance you can use user's AAID, more about AAID:
@@ -100,7 +100,7 @@ class AnalyticsActivity : BaseActivity() {
         hiAnalyticsInstance?.pageEnd("screen-name1")
     }
 
-    private fun initNavigation() {
+    private fun initViews() {
         findViewById<MaterialButton>(R.id.btnSendEvent).setOnClickListener { reportEventNoBundle() }
         findViewById<MaterialButton>(R.id.btnSendEventBundle).setOnClickListener { reportEventBundle() }
         findViewById<MaterialButton>(R.id.btnSendEventArraylist).setOnClickListener { reportArraylistBundle() }

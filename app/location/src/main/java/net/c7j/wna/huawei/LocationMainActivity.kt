@@ -16,7 +16,7 @@ class LocationMainActivity : BaseActivity() {
         }
 
         findViewById<MaterialButton>(R.id.btnActivityIdentification).setOnClickListener {
-            navigate("net.c7j.wna.huawei.RecognitionConversionActivity")
+            navigate("net.c7j.wna.huawei.ActivityRecognitionAndPeriodicLocationActivity")
         }
 
         findViewById<MaterialButton>(R.id.btnGeofence).setOnClickListener {

@@ -9,6 +9,7 @@ import com.huawei.hms.ads.AdParam
 import com.huawei.hms.ads.InterstitialAd
 import net.c7j.wna.huawei.ads.R
 
+// This activity shows example of interstitial Ads usage
 class InterstitialActivity : BaseActivity() {
 
     private lateinit var interstitialAd: InterstitialAd

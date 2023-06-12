@@ -230,7 +230,7 @@
     <string name="btn_check_url">Check finishing url</string>
     <string name="btn_check_user">Check user is a robot</string>
 
-    <string name="btn_account_kit">Account Kit</string>
+    <string name="btn_account_kit">Account Kit &#43;(SMS)</string>
     <string name="btn_cancel_auth">Revoke App Auth</string>
     <string name="btn_sign_in_via_id_token">Sign in via Id Token</string>
     <string name="btn_sign_in_via_oauth">Sign in via Oauth</string>
@@ -258,4 +258,17 @@
     <string name="save_barcode">Save Barcode</string>
     <string name="barcode_content">Barcode Content:</string>
 
+
+    <string name="btn_ml_kit">ML Kit</string>
+    <string name="ml_bankcard">ML Bank card</string>
+    <string name="ml_voice_recognition">ML Voice recognition</string>
+    <string name="ml_text_to_speech">ML TTS</string>
+    <string name="ml_voice_no_ui">Recognize no UI</string>
+    <string name="ml_voice_results">..recognition results..</string>
+    <string name="ml_voice_status">..status..</string>
+    <string name="ml_tts_hint">input text here</string>
+    <string name="ml_tts">Text to speech</string>
+    <string name="ml_tts_pause">Pause TTS</string>
+    <string name="ml_tts_resume">Resume TTS</string>
+    <string name="ml_recognize_bankcard">Recognize bank card</string>
 </resources>

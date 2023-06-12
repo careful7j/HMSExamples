@@ -1,0 +1,10 @@
+-dontwarn com.huawei.**
+-keep class com.huawei.** {*;}
+-dontwarn org.slf4j.**
+-keep class org.slf4j.** {*;}
+-dontwarn org.springframework.**
+-keep class org.springframework.** {*;}
+-dontwarn com.fasterxml.jackson.**
+-keep class com.fasterxml.jackson.** {*;}
+-dontwarn com.huawei.hisi.**
+-keep class com.huawei.hisi.** {*;}

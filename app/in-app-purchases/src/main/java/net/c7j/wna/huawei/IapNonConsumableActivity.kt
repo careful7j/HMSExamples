@@ -11,7 +11,8 @@ import com.huawei.hms.iap.entity.ProductInfoResult
 import com.huawei.hms.iap.entity.PurchaseIntentResult
 import net.c7j.wna.huawei.iap.R
 
-
+// This activity shows how to purchase Non-consumable goods
+// Non-consumable goods can be purchased only once
 class IapNonConsumableActivity : BaseActivity(), IapResultCallback {
 
     private val testNonConsumable = IapRequestHelper.TEST_NON1
