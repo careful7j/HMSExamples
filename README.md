@@ -55,7 +55,7 @@ This examples cover ALL commonly used sdk (June 2023 latest) of Huawei Mobile Se
 - generate QR/Bar/other code
 
 ## Test results:
-<img width="1336" alt="Screenshot 2023-06-13 at 05 15 02" src="https://github.com/careful7j/HMS-Examples/assets/2966645/1026b412-7595-4348-8e39-f1b065c41b1e">
+<img width="1336" alt="Screenshot 2023-06-13 at 05 15 02" src="https://github.com/careful7j/HMS-Examples/assets/2966645/9d6e8ab8-8dff-433e-976c-b871aba9981d">
 all sdk clean-build ~30 seconds (M1 chip) | Android Studio 2022.2.1 Patch 2 | sdk = 33 | Huawei Mobile Services 6.11.0.302
 
 ## Test devices:
