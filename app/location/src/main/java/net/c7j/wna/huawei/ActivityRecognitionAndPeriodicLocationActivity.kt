@@ -53,7 +53,12 @@ class ActivityRecognitionAndPeriodicLocationActivity : BaseActivity() {
         setContentView(R.layout.recognition_conversion_activity)
 
         initViews()
-        requestBackgroundLocationPermission()
+        locationPermissions.launch(
+            if (SDK_INT < Build.VERSION_CODES.Q)
+                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION)
+            else arrayOf(Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
+        )
 
         pendingIntent = getPendingIntent()
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
@@ -217,6 +222,16 @@ class ActivityRecognitionAndPeriodicLocationActivity : BaseActivity() {
         strActivityLocationsFailed = getString(net.c7j.wna.huawei.box.R.string.str_activity_locations_failed)
         strActivityConversionFailed = getString(net.c7j.wna.huawei.box.R.string.str_activity_conversion_failed)
         strActivityRecognitionFailed = getString(net.c7j.wna.huawei.box.R.string.str_activity_recognition_failed)
+    }
+
+    private val locationPermissions = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { map ->
+        var count = 0
+        if (map[Manifest.permission.ACCESS_FINE_LOCATION] == true) count++
+        if (map[Manifest.permission.ACCESS_COARSE_LOCATION] == true) count++
+        if (SDK_INT >= Build.VERSION_CODES.Q) if (map[Manifest.permission.ACCESS_BACKGROUND_LOCATION] == true) count++
+        if (SDK_INT < Build.VERSION_CODES.Q && count < 2 || SDK_INT >= Build.VERSION_CODES.Q && count < 3) {
+            toast("Not all location permissions are granted, functions are limited")
+        }
     }
 
     private val activityRecognitionPermission = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->

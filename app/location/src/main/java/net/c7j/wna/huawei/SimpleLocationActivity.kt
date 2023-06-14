@@ -1,11 +1,12 @@
 package net.c7j.wna.huawei
 
+import android.Manifest
 import android.annotation.SuppressLint
-import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
 import android.os.Looper
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.material.button.MaterialButton
 import com.huawei.hmf.tasks.OnSuccessListener
 import com.huawei.hmf.tasks.Task
@@ -61,7 +62,7 @@ class SimpleLocationActivity : BaseActivity() {
 
         // SDK supports conversion of the obtained WGS84 coordinates into GCJ02 coordinates:
         // As .convertCoord(latitude, longitude, convert mode shall be = 1 if WGS84 to GCJ02)
-        val convertedLonLat = LocationUtils.convertCoord(39.9042 ,116.4074, 1)
+        @Suppress("UNUSED_VARIABLE") val convertedLonLat = LocationUtils.convertCoord(39.9042 ,116.4074, 1)
     }
 
 
@@ -142,33 +143,22 @@ class SimpleLocationActivity : BaseActivity() {
                 with(location) { tvPosition.text = "$longitude, $latitude" }
             }).addOnFailureListener { e ->
                 tvPosition.text = getString(net.c7j.wna.huawei.box.R.string.get_loc_null)
-                requestLocationPermissions()
+                locationPermissions.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
                 log("failed: $e")
             }
         } catch (e: Exception) { log("Exception: $e") }
     }
 
-    // Handle user's answer on location permission request dialog
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == PERMISSION_FINE_COARSE_LOCATION) {
-            if ( grantResults.size > 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED &&
-                grantResults[1] == PackageManager.PERMISSION_GRANTED
-            ) {
-                log("onRequestPermissionsResult: apply LOCATION PERMISSION successful")
-                requestLocationUpdatesWithCallback()
-            } else {
-                if ( grantResults.size > 1 && (grantResults[0] == PackageManager.PERMISSION_GRANTED ||
-                            grantResults[1] == PackageManager.PERMISSION_GRANTED)
-                ) {
-                    log("onRequestPermissionsResult: apply LOCATION PERMISSION partially successful")
-                    requestLocationUpdatesWithCallback()
-                } else {
-                    log("onRequestPermissionsResult: apply LOCATION PERMISSION failed")
-                }
-            }
+    private val locationPermissions = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { map ->
+        var count = 0
+        if (map[Manifest.permission.ACCESS_FINE_LOCATION] == true) count++
+        if (map[Manifest.permission.ACCESS_COARSE_LOCATION] == true) count++
+        if (count < 2) {
+            toast("Not all location permissions are granted, functions are limited")
+        } else {
+            requestLocationUpdatesWithCallback()
+            toast("Location button enabled")
         }
-
     }
 
 }

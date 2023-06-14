@@ -201,7 +201,7 @@
 
     <string name="btn_push_kit">Push Kit</string>
     <string name="btn_copy_token">Copy device token</string>
-    <string name="btn_copy_note">Use token to send direct test push to your device from AppGallery Console (no server is required).\n\n1. Open: http://developer.huawei.com\n2. Sign into your developer account\n3. Open to AppGallery Connect service card\n4. Navigate to All services - My Projects - Grow (at left column) - Push Kit - Add Notification \n5. At Scope section choose Specified device and input your device token./n6. Send push message to your device</string>
+    <string name="btn_copy_note">Use token to send direct test push to your device from AppGallery Console (no server is required).\n\n1. Open: http://developer.huawei.com\n2. Sign into your developer account\n3. Open to AppGallery Connect service card\n4. Navigate to All services - My Projects - Grow (at left column) - Push Kit - Add Notification \n5. At Scope section choose Specified device and input your device token.\n6. Send push message to your device</string>
     <string name="btn_push_topic_subscribe">Subscribe Push Topic</string>
     <string name="btn_push_topic_unsubscribe">Unsubscribe Push Topic</string>
 

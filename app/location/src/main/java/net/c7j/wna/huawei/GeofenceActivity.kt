@@ -1,5 +1,6 @@
 package net.c7j.wna.huawei
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.app.PendingIntent
 import android.content.BroadcastReceiver
@@ -10,6 +11,7 @@ import android.location.Location
 import android.location.LocationManager
 import android.os.Build
 import android.os.Bundle
+import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.huawei.hms.location.*
@@ -38,6 +40,12 @@ class GeofenceActivity : BaseActivity() {
         initViews()
         geofenceService = LocationServices.getGeofenceService(this)
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
+        locationPermissions.launch(
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q)
+                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION)
+            else arrayOf(Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
+        )
     }
 
     private fun addGeofence() {
@@ -136,6 +144,15 @@ class GeofenceActivity : BaseActivity() {
         }
     }
 
+    private val locationPermissions = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { map ->
+        var count = 0
+        if (map[Manifest.permission.ACCESS_FINE_LOCATION] == true) count++
+        if (map[Manifest.permission.ACCESS_COARSE_LOCATION] == true) count++
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) if (map[Manifest.permission.ACCESS_BACKGROUND_LOCATION] == true) count++
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q && count < 2 || Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && count < 3) {
+            toast("Not all location permissions are granted, functions are limited")
+        }
+    }
 
     private fun initViews() {
         findViewById<MaterialButton>(R.id.btnAddGeofence).setOnClickListener { addGeofence() }

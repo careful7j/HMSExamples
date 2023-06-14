@@ -3,7 +3,6 @@ package net.c7j.wna.huawei
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
@@ -13,7 +12,7 @@ import android.os.Looper
 import android.view.View
 import android.view.animation.LinearInterpolator
 import android.widget.TextView
-import androidx.core.app.ActivityCompat
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import com.google.android.material.button.MaterialButton
 import com.huawei.hms.maps.CameraUpdateFactory
@@ -166,13 +165,22 @@ class MarkerLocationMapActivity : BaseActivity(), OnMapReadyCallback {
     }
 
     private fun enableMyLocation() {
-        if (ActivityCompat.checkSelfPermission(this,
-                Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
-            ActivityCompat.checkSelfPermission(this,
-                Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED
-        ) {
-            requestLocationPermissions()
+        if (!checkPermission(Manifest.permission.ACCESS_FINE_LOCATION) ||
+            !checkPermission(Manifest.permission.ACCESS_COARSE_LOCATION)) {
+            locationPermissions.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
         } else huaweiMap?.isMyLocationEnabled = true
+    }
+
+    private val locationPermissions = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { map ->
+        var count = 0
+        if (map[Manifest.permission.ACCESS_FINE_LOCATION] == true) count++
+        if (map[Manifest.permission.ACCESS_COARSE_LOCATION] == true) count++
+        if (count < 2) {
+            toast("Not all location permissions are granted, functions are limited")
+        } else {
+            huaweiMap?.isMyLocationEnabled = true
+            toast("Location button enabled")
+        }
     }
 
     private fun assignEventListeners() {
@@ -253,27 +261,6 @@ class MarkerLocationMapActivity : BaseActivity(), OnMapReadyCallback {
                 intrinsicWidth / 2, intrinsicHeight / 2, Bitmap.Config.ARGB_8888)
             draw(Canvas(bitmap))
             BitmapDescriptorFactory.fromBitmap(bitmap)
-        }
-    }
-
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == PERMISSION_FINE_COARSE_LOCATION) {
-            if ( grantResults.size > 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED &&
-                grantResults[1] == PackageManager.PERMISSION_GRANTED
-            ) {
-                log("onRequestPermissionsResult: apply LOCATION PERMISSION successful")
-                huaweiMap?.isMyLocationEnabled = true
-            } else {
-                if ( grantResults.size > 1 && (grantResults[0] == PackageManager.PERMISSION_GRANTED ||
-                            grantResults[1] == PackageManager.PERMISSION_GRANTED)
-                ) {
-                    log("onRequestPermissionsResult: apply LOCATION PERMISSION partially successful")
-                    huaweiMap?.isMyLocationEnabled = true
-                } else {
-                    log("onRequestPermissionsResult: apply LOCATION PERMISSION failed")
-                }
-            }
         }
     }
 
