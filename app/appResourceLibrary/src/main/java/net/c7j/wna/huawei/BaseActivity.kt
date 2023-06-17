@@ -17,6 +17,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     //Cross-module navigation
     protected fun navigate(destination: String) {
+        if (destination == "") return
         try {
             val intent = Intent()
             intent.setClassName(packageName, destination)

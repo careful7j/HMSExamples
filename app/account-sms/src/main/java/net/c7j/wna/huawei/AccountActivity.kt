@@ -254,7 +254,6 @@ class AccountActivity : BaseActivity() {
         }
     }
 
-
     private fun initViews() {
         findViewById<View>(R.id.HuaweiIdAuthButton).setOnClickListener { silentSignInWithoutIdVerification() }
         findViewById<View>(R.id.btnCancelAuth).setOnClickListener { revokeAuth() }
@@ -281,7 +280,6 @@ class AccountActivity : BaseActivity() {
         }
     }
 
-
     private val authResult =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
             if (result.resultCode == Activity.RESULT_OK) {
@@ -293,5 +291,4 @@ class AccountActivity : BaseActivity() {
                 } else log("sign in failed: " + (authAccountTask.exception as ApiException).statusCode)
             }
         }
-
 }

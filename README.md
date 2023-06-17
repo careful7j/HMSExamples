@@ -1,4 +1,7 @@
 # Huawei Mobile Services (HMS) Examples
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/careful7j/HMS-Examples/blob/master/README.md)
+[![ru](https://img.shields.io/badge/lang-ru-red.svg)](https://github.com/careful7j/HMS-Examples/blob/master/README.ru.md)
+
 These examples cover ALL commonly used sdks (June 2023 latest) of Huawei Mobile Services 6.11.0.302. Proved to compile for android 13 and are limited to minimal API showcase - no extra libraries, no fancy architecture.
 
 ## Account Kit

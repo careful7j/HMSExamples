@@ -3,7 +3,6 @@ package net.c7j.wna.huawei
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
-import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 
@@ -12,48 +11,26 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        initNavigation()
         handleNoHMSAvailable()
     }
 
-
-    private fun initNavigation() {
-        findViewById<MaterialButton>(R.id.btnNavigateToAnalytics).setOnClickListener {
-            navigate("net.c7j.wna.huawei.AnalyticsActivity")
-        }
-        findViewById<MaterialButton>(R.id.btnNavigateToAds).setOnClickListener {
-            navigate("net.c7j.wna.huawei.AdsRewardedNavigationActivity")
-        }
-        findViewById<MaterialButton>(R.id.btnNavigateToLocation).setOnClickListener {
-            navigate("net.c7j.wna.huawei.LocationMainActivity")
-        }
-        findViewById<MaterialButton>(R.id.btnNavigateToMaps).setOnClickListener {
-            navigate("net.c7j.wna.huawei.MapsMainActivity")
-        }
-        findViewById<MaterialButton>(R.id.btnNavigateToPush).setOnClickListener {
-            navigate("net.c7j.wna.huawei.PushMainActivity")
-        }
-        findViewById<MaterialButton>(R.id.btnNavigateToIap).setOnClickListener {
-            navigate("net.c7j.wna.huawei.IapMainActivity")
-        }
-        findViewById<MaterialButton>(R.id.btnNavigateToFingerprint).setOnClickListener {
-            navigate("net.c7j.wna.huawei.FingerprintActivity")
-        }
-        findViewById<MaterialButton>(R.id.btnNavigateToSafetyDetect).setOnClickListener {
-            navigate("net.c7j.wna.huawei.SafetyDetectActivity")
-        }
-        findViewById<MaterialButton>(R.id.btnNavigateToAccount).setOnClickListener {
-            navigate("net.c7j.wna.huawei.AccountActivity")
-        }
-        findViewById<MaterialButton>(R.id.btnNavigateToScan).setOnClickListener {
-            navigate("net.c7j.wna.huawei.ScanActivity")
-        }
-        findViewById<MaterialButton>(R.id.btnNavigateToML).setOnClickListener {
-            navigate("net.c7j.wna.huawei.MLMainActivity")
-        }
-        findViewById<TextView>(R.id.btnHMSAreMissing).setOnClickListener { handleNoHMSAvailable() }
+    fun btnClicked(v: View) {
+        navigate(when (v.id) {
+            R.id.btnNavigateToAnalytics -> "net.c7j.wna.huawei.AnalyticsActivity"
+            R.id.btnNavigateToAds -> "net.c7j.wna.huawei.AdsRewardedNavigationActivity"
+            R.id.btnNavigateToLocation -> "net.c7j.wna.huawei.LocationMainActivity"
+            R.id.btnNavigateToMaps -> "net.c7j.wna.huawei.MapsMainActivity"
+            R.id.btnNavigateToPush -> "net.c7j.wna.huawei.PushMainActivity"
+            R.id.btnNavigateToIap -> "net.c7j.wna.huawei.IapMainActivity"
+            R.id.btnNavigateToFingerprint -> "net.c7j.wna.huawei.FingerprintActivity"
+            R.id.btnNavigateToSafetyDetect -> "net.c7j.wna.huawei.SafetyDetectActivity"
+            R.id.btnNavigateToAccount -> "net.c7j.wna.huawei.AccountActivity"
+            R.id.btnNavigateToScan -> "net.c7j.wna.huawei.ScanActivity"
+            R.id.btnNavigateToML -> "net.c7j.wna.huawei.MLMainActivity"
+            R.id.btnHMSAreMissing -> "".also {handleNoHMSAvailable() }
+            else -> ""
+        })
     }
-
 
     private fun handleNoHMSAvailable() {
         val title = net.c7j.wna.huawei.box.R.string.ag_dialog_title

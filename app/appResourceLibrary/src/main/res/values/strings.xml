@@ -221,10 +221,11 @@
     <string name="btn_purchase_non_consumable">Purchase non-consumable</string>
     <string name="btn_purchase_consumable">Purchase consumable</string>
 
-    <string name="btn_fingerprint">Fingerprint</string>
+    <string name="btn_fido_kit">FIDO Kit</string>
+    <string name="btn_fingerprint">Finger auth</string>
     <string name="btn_face_auth">Face auth</string>
 
-    <string name="btn_safety_detect">Safety Detect</string>
+    <string name="btn_safety_detect">Safety Detect Kit</string>
     <string name="btn_root_check">Check device is rooted</string>
     <string name="btn_malicious_apps_check">Check for malicious apps on device</string>
     <string name="btn_check_url">Check finishing url</string>

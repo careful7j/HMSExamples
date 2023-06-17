@@ -1,7 +1,7 @@
 package net.c7j.wna.huawei
 
 import android.os.Bundle
-import com.google.android.material.button.MaterialButton
+import android.view.View
 import com.huawei.agconnect.AGConnectOptionsBuilder
 import com.huawei.hms.maps.MapsInitializer
 import net.c7j.wna.huawei.maps.R
@@ -17,34 +17,23 @@ class MapsMainActivity : BaseActivity() {
         MapsInitializer.initialize(this, apiKey)
     }
 
+    fun btnClicked(v: View) {
+        navigate(when (v.id) {
+            R.id.btnSimpleMap -> "net.c7j.wna.huawei.SimpleMapActivity"
+            R.id.btnMapSupportFragment -> "net.c7j.wna.huawei.MapFragmentActivity"
+            R.id.btnMarkerLocationMapActivity -> "net.c7j.wna.huawei.MarkerLocationMapActivity"
+            R.id.btnStyleAndCameraMapActivity -> "net.c7j.wna.huawei.StyleAndCameraMapActivity"
+            R.id.btnLiteMapActivity -> "net.c7j.wna.huawei.LiteMapActivity"
+            R.id.btnMapDrawShape -> "net.c7j.wna.huawei.MapDrawShapesActivity"
+            R.id.btnMapOverlayActivity -> "net.c7j.wna.huawei.MapOverlayActivity"
+            R.id.btnHeatMapActivity -> "net.c7j.wna.huawei.HeatMapActivity"
+            else -> ""
+        })
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps_main)
         initializeMapSdk()
-
-        findViewById<MaterialButton>(R.id.btnSimpleMap).setOnClickListener {
-            navigate("net.c7j.wna.huawei.SimpleMapActivity")
-        }
-        findViewById<MaterialButton>(R.id.btnMapSupportFragment).setOnClickListener {
-            navigate("net.c7j.wna.huawei.MapFragmentActivity")
-        }
-        findViewById<MaterialButton>(R.id.btnMarkerLocationMapActivity).setOnClickListener {
-            navigate("net.c7j.wna.huawei.MarkerLocationMapActivity")
-        }
-        findViewById<MaterialButton>(R.id.btnStyleAndCameraMapActivity).setOnClickListener {
-            navigate("net.c7j.wna.huawei.StyleAndCameraMapActivity")
-        }
-        findViewById<MaterialButton>(R.id.btnLiteMapActivity).setOnClickListener {
-            navigate("net.c7j.wna.huawei.LiteMapActivity")
-        }
-        findViewById<MaterialButton>(R.id.btnMapDrawShape).setOnClickListener {
-            navigate("net.c7j.wna.huawei.MapDrawShapesActivity")
-        }
-        findViewById<MaterialButton>(R.id.btnMapOverlayActivity).setOnClickListener {
-            navigate("net.c7j.wna.huawei.MapOverlayActivity")
-        }
-        findViewById<MaterialButton>(R.id.btnHeatMapActivity).setOnClickListener {
-            navigate("net.c7j.wna.huawei.HeatMapActivity")
-        }
     }
 }
