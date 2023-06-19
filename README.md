@@ -35,6 +35,8 @@ These examples cover ALL commonly used sdks (June 2023 latest) of Huawei Mobile 
 - purchase non-consumable products and subscriptions
 - view purchasement history, obtained products
 
+[Telegram bot to convert your Google IAP products to HUAWEI IAP products](https://t.me/HmsIapConverterBot)
+
 [Official Documentation](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-introduction-0000001265784086) | [API Reference](https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/client-package-summary-0000001063498539)
 
 ## Location Kit
