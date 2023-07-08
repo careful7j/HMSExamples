@@ -6,8 +6,8 @@ pluginManagement {
         maven { url 'https://developer.huawei.com/repo/' }
     }
     plugins {
-        id 'com.android.application' version '7.4.2'
-        id 'org.jetbrains.kotlin.android' version '1.8.0'
+        id 'com.android.application' version '8.0.2'
+        id 'org.jetbrains.kotlin.android' version '1.9.0'
     }
     resolutionStrategy {
         eachPlugin {

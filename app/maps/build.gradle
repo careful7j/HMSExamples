@@ -42,10 +42,10 @@ dependencies {
     //      All Services -> My projects -> Project settings -> Manage APIs -> Map Kit (enable)
     //
     // Light-weight version of maps sdk which requires Huawei Mobile Services to be installed on your device
-    implementation "com.huawei.hms:maps:6.10.1.300"
+    implementation "com.huawei.hms:maps:6.11.0.304"
     // "maps-basic" (full) version allows map to be workable without HMS installed on device.
     // sdk version of "maps-basic" and "maps" shall be the same if you select full sdk.
-    implementation "com.huawei.hms:maps-basic:6.10.1.300"
+    implementation "com.huawei.hms:maps-basic:6.11.0.304"
 
     // Important! This sample do not cover the capabilities of enhanced map SDK
     // This samples cover only standard sdk capabilities available for everyone.
