@@ -35,6 +35,8 @@
 - покупка не потребляемых продуктов и подписок
 - получение списка купленных продуктов, просмотр истории
 
+[Телеграм бот конвертирующий Google-продукты в HUAWEI-продукты](https://t.me/HmsIapConverterBot)
+
 [Официальная документация](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-introduction-0000001265784086) | [Описание API](https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/client-package-summary-0000001063498539)
 
 ## Location Kit
