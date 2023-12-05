@@ -44,7 +44,7 @@ dependencies {
     // 2. FAQ: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/no-data-scenario-0000001351274365
     // 3. Latest sdk version: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/version-change-history-0000001050705116
     // 4. Debug mode to realtime test events: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-accessing-0000001050161888#section1284414416588
-    implementation "com.huawei.hms:hianalytics:6.10.0.302"
+    implementation "com.huawei.hms:hianalytics:6.12.0.300"
 
     // This SDK starts itself. You only need to declare a dependency in your build.gradle as below,
     // nothing else is required except special case at useful link (4) below:

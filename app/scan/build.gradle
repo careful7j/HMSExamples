@@ -45,9 +45,9 @@ dependencies {
     //
     // Barcode generation (how to make it more readable):
     // https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/recommended-set-0000001050043983
-//    implementation "com.huawei.hms:scan:2.10.0.301"     // 1.1 mb overhead
+//    implementation "com.huawei.hms:scan:2.12.0.301"     // 1.1 mb overhead
     // This is the same as "scan" but can operate more efficiently on non-huawei devices
-    implementation "com.huawei.hms:scanplus:2.11.0.300"  // 3.1 mb overhead
+    implementation "com.huawei.hms:scanplus:2.12.0.301"  // 3.1 mb overhead
 
     implementation "androidx.core:core-ktx:$rootProject.ver.corektx"
     implementation "androidx.appcompat:appcompat:$rootProject.ver.appcompat"

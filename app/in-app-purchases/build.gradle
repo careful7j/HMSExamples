@@ -60,7 +60,7 @@ dependencies {
     //
     // Complete guide about functions of subscriptions and how do they operate / are billed, can be found at that page:
     // https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/subscription-functions-0000001050130264#section9656759154814
-    implementation "com.huawei.hms:iap:6.10.0.300"
+    implementation "com.huawei.hms:iap:6.13.0.300"
 
     // Optional dependency: will show "please install HMS" dialogue on devices which don't have HMS
     implementation 'com.huawei.hms:hmscoreinstaller:6.9.0.300'

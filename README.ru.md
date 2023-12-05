@@ -2,7 +2,7 @@
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/careful7j/HMS-Examples/blob/master/README.md)
 [![ru](https://img.shields.io/badge/lang-ru-red.svg)](https://github.com/careful7j/HMS-Examples/blob/master/README.ru.md)
 
-Примеры показывают возможности наиболее используемых sdk (последние на июнь 2023) мобильных сервисов Хуавей 6.11.0.302. Примеры проверены на работоспособность под android 13. Использование сторонних библиотек и архитектурные излишества сведены к минимуму.
+Примеры показывают возможности наиболее используемых sdk (последние на декабрь 2023) мобильных сервисов Хуавей 6.12.2.302. Примеры проверены на работоспособность под android 13. Использование сторонних библиотек и архитектурные излишества сведены к минимуму.
 
 ## Account Kit
 - вход без Id верификации
@@ -41,8 +41,9 @@
 
 ## Location Kit
 - получение геолокации, последней геолокации, регулярное обновление геолокации
-- геозона (вход и выход из отмеченной области)
+- geofence (вход и выход из отмеченной области)
 - распознавание активности (ходьба/бег/вождение автомобиля)
+* geofence доступен только [на этих устройствах](https://developer.huawei.com/consumer/en/doc/HMSCore-Guides/supported-geofencing-devices-0000001674873585)
 
 [Официальная документация](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-introduction-0000001121930588) | [Описание API](https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/overview-0000001051066102)
 

@@ -63,7 +63,7 @@ dependencies {
     // Optional dependency: will show "please install HMS" dialogue on devices which don't have HMS
     implementation 'com.huawei.hms:hmscoreinstaller:6.9.0.300'
     // Optional dependency to enable enhanced functions like send push to audience or a/b tests
-    implementation "com.huawei.hms:hianalytics:6.9.0.302"
+    implementation "com.huawei.hms:hianalytics:6.12.0.300"
 
     implementation "androidx.core:core-ktx:$rootProject.ver.corektx"
     implementation "androidx.appcompat:appcompat:$rootProject.ver.appcompat"

@@ -52,7 +52,7 @@ dependencies {
     //
     // Latest sdk version: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/version-change-history-0000001050986155
     // Possible SDK issues FAQ: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/faq-0000001050986161
-    implementation "com.huawei.hms:location:6.11.0.301"
+    implementation "com.huawei.hms:location:6.12.0.300"
 
     implementation "androidx.core:core-ktx:$rootProject.ver.corektx"
     implementation "androidx.appcompat:appcompat:$rootProject.ver.appcompat"

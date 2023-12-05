@@ -2,7 +2,7 @@
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/careful7j/HMS-Examples/blob/master/README.md)
 [![ru](https://img.shields.io/badge/lang-ru-red.svg)](https://github.com/careful7j/HMS-Examples/blob/master/README.ru.md)
 
-These examples cover ALL commonly used sdks (June 2023 latest) of Huawei Mobile Services 6.11.0.302. Proved to compile for android 13 and are limited to minimal API showcase - no extra libraries, no fancy architecture.
+These examples cover ALL commonly used sdks (December 2023 latest) of Huawei Mobile Services 6.12.2.302. Proved to compile for android 13 and are limited to minimal API showcase - no extra libraries, no fancy architecture.
 
 ## Account Kit
 - sign in without Id verification
@@ -43,6 +43,7 @@ These examples cover ALL commonly used sdks (June 2023 latest) of Huawei Mobile 
 - get user location, last location, periodic location
 - geofence (enter/exit geo zone)
 - user activity recognition (like walking/running/driving)
+*geofence is available only [on this list of devices](https://developer.huawei.com/consumer/en/doc/HMSCore-Guides/supported-geofencing-devices-0000001674873585) 
 
 [Official Documentation](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-introduction-0000001121930588) | [API Reference](https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/overview-0000001051066102)
 

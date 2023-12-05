@@ -63,16 +63,16 @@ dependencies {
 
     // Documentation: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/publisher-service-integrating-sdk-0000001050066913
     // Latest sdk version: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/publisher-service-version-change-history-0000001050066909
-    implementation 'com.huawei.hms:ads-prime:3.4.62.300'
+    implementation 'com.huawei.hms:ads-prime:3.4.67.300'
 
     // If you plan to use Huawei Ads Kit only on HUAWEI devices, is recommended light weight sdk (instead of ads-prime):
-//    implementation 'com.huawei.hms:ads-lite:13.4.62.300'
+//    implementation 'com.huawei.hms:ads-lite:13.4.67.300'
 
     // To collect open advertisement identifier (OAID) if you require it at any of your services
     // Documentation: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/identifier-service-integrating-sdk-0000001056460552
-    implementation 'com.huawei.hms:ads-identifier:3.4.62.300' // +17kb overhead
+    implementation 'com.huawei.hms:ads-identifier:3.4.67.300' // +17kb overhead
     // To request user consent for personalized ads
-    implementation 'com.huawei.hms:ads-consent:3.4.62.300' // +37kb overhead
+    implementation 'com.huawei.hms:ads-consent:3.4.67.300' // +37kb overhead
 
     implementation "androidx.core:core-ktx:$rootProject.ver.corektx"
     implementation "androidx.appcompat:appcompat:$rootProject.ver.appcompat"

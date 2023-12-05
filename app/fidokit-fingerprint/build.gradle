@@ -44,7 +44,7 @@ dependencies {
     // https://developer.huawei.com/consumer/en/doc/development/Security-Guides/version-change-history-0000001050750051
     // This example covers basic system-type device biometric authorization (both: finger and face) without crypto objects.
     // If you want something more complicated, please see: https://developer.huawei.com/consumer/en/doc/development/Security-Examples/sample-code-0000001050158985
-    implementation "com.huawei.hms:fido-bioauthn-androidx:6.7.0.300"
+    implementation "com.huawei.hms:fido-bioauthn-androidx:6.7.0.301"
 
     implementation "androidx.core:core-ktx:$rootProject.ver.corektx"
     implementation "androidx.appcompat:appcompat:$rootProject.ver.appcompat"

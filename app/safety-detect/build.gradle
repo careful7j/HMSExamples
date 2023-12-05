@@ -44,7 +44,7 @@ dependencies {
     // https://developer.huawei.com/consumer/en/doc/development/Security-Guides/version-change-history-0000001050156329
     // To achieve safety, sdk collects some user data. Read more at "sdk privacy and security" section:
     // https://developer.huawei.com/consumer/en/doc/development/Security-Guides/sdk-data-security-0000001050156339
-    implementation "com.huawei.hms:safetydetect:6.7.0.301"
+    implementation "com.huawei.hms:safetydetect:6.7.0.302"
 
     implementation "androidx.core:core-ktx:$rootProject.ver.corektx"
     implementation "androidx.appcompat:appcompat:$rootProject.ver.appcompat"

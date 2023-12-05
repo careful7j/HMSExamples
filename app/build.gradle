@@ -26,6 +26,11 @@ android {
         resConfigs "en"  // drop unused resources overhead to speed up examples build
     }
 
+    // to prevent Duplicate class org.bouncycastle.* found in modules
+    configurations{
+        all*.exclude module: 'bcprov-jdk15on'
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

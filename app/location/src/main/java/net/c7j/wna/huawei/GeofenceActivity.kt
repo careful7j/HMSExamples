@@ -19,6 +19,9 @@ import net.c7j.wna.huawei.location.R
 import kotlin.random.Random
 
 // This activity shows how to use geofence feature (enter/exit predefined coordinates zone)
+// NOT EVERY DEVICE SUPPORTS THIS FEATURE!
+// Please check the list of supported devices at here (App Services > Location Kit > Appendixies):
+// https://developer.huawei.com/consumer/en/doc/HMSCore-Guides/supported-geofencing-devices-0000001674873585
 class GeofenceActivity : BaseActivity() {
 
     private var geofenceService: GeofenceService? = null
