@@ -157,33 +157,12 @@
             />
 
         <TextView
-            android:id="@+id/tv_express_splash_ads"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tv_express_splash_ads"
-            android:gravity="center"
-            app:layout_constraintTop_toBottomOf="@+id/btn_instream_ads"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_express_splash_ads"
-            android:layout_width="256dp"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_express_splash_ads"
-            android:gravity="center"
-            app:layout_constraintTop_toBottomOf="@+id/tv_express_splash_ads"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            />
-
-        <TextView
             android:id="@+id/tv_consent_non_personalised"
             android:layout_width="256dp"
             android:layout_height="wrap_content"
             android:text="@string/tv_consent_non_personalised"
             android:gravity="center"
-            app:layout_constraintTop_toBottomOf="@+id/btn_express_splash_ads"
+            app:layout_constraintTop_toBottomOf="@+id/btn_instream_ads"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 

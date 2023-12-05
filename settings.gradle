@@ -6,15 +6,15 @@ pluginManagement {
         maven { url 'https://developer.huawei.com/repo/' }
     }
     plugins {
-        id 'com.android.application' version '8.0.2'
-        id 'org.jetbrains.kotlin.android' version '1.9.0'
+        id 'com.android.application' version '8.2.0'
+        id 'org.jetbrains.kotlin.android' version '1.9.21'
     }
     resolutionStrategy {
         eachPlugin {
             if (it.requested.id.getNamespace() == 'com.huawei.agconnect') {
                 println ">> ${it.requested.id.id}"
                 if (it.requested.id.id == 'com.huawei.agconnect.agcp') {
-                    it.useModule('com.huawei.agconnect:agcp:1.8.0.300')
+                    it.useModule('com.huawei.agconnect:agcp:1.9.1.301')
                 }
                 println ">> ${it.target}"
             } else {

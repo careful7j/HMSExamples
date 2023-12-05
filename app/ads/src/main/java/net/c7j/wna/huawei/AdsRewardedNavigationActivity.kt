@@ -61,9 +61,6 @@ class AdsRewardedNavigationActivity : BaseActivity(), ProtocolDialog.ProtocolDia
         findViewById<MaterialButton>(R.id.btn_consent_non_personalised).setOnClickListener {
             navigate("net.c7j.wna.huawei.consent.ConsentActivity")
         }
-        findViewById<MaterialButton>(R.id.btn_express_splash_ads).setOnClickListener {
-            navigate("net.c7j.wna.huawei.splash.ExSplashActivity")
-        }
         findViewById<MaterialButton>(R.id.btn_privacy_agreement).setOnClickListener {
             showProtocolDialog()
         }

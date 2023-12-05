@@ -41,9 +41,8 @@ These examples cover ALL commonly used sdks (December 2023 latest) of Huawei Mob
 
 ## Location Kit
 - get user location, last location, periodic location
-- geofence (enter/exit geo zone)
-- user activity recognition (like walking/running/driving)
-*geofence is available only [on this list of devices](https://developer.huawei.com/consumer/en/doc/HMSCore-Guides/supported-geofencing-devices-0000001674873585) 
+- geofence (enter/exit geo zone) is available only [on this list of devices](https://developer.huawei.com/consumer/en/doc/HMSCore-Guides/supported-geofencing-devices-0000001674873585)
+- user activity recognition (like walking/running/driving) 
 
 [Official Documentation](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-introduction-0000001121930588) | [API Reference](https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/overview-0000001051066102)
 

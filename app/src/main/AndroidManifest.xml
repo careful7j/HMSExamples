@@ -65,7 +65,6 @@
         <activity android:name="net.c7j.wna.huawei.InterstitialActivity" android:exported="true"/>
         <activity android:name="net.c7j.wna.huawei.SplashActivity" android:exported="true"/>
         <activity android:name="net.c7j.wna.huawei.InStreamActivity" android:exported="true"/>
-        <activity android:name="net.c7j.wna.huawei.splash.ExSplashActivity" android:exported="true"/>
         <activity android:name="net.c7j.wna.huawei.consent.ConsentActivity" android:exported="true"/>
 
         <activity android:name="net.c7j.wna.huawei.LocationMainActivity" android:exported="true"/>

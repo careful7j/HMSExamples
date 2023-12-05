@@ -41,9 +41,8 @@
 
 ## Location Kit
 - получение геолокации, последней геолокации, регулярное обновление геолокации
-- geofence (вход и выход из отмеченной области)
+- geofence (вход и выход из отмеченной области) доступен только [на этих устройствах](https://developer.huawei.com/consumer/en/doc/HMSCore-Guides/supported-geofencing-devices-0000001674873585)
 - распознавание активности (ходьба/бег/вождение автомобиля)
-* geofence доступен только [на этих устройствах](https://developer.huawei.com/consumer/en/doc/HMSCore-Guides/supported-geofencing-devices-0000001674873585)
 
 [Официальная документация](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-introduction-0000001121930588) | [Описание API](https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/overview-0000001051066102)
 
